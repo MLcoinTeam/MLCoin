@@ -8,19 +8,37 @@
 *  Updated by [Allan Nava]
 *  Copyright © 2020 . All rights reserved.
 */
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+///
 import 'package:mlcoin_app/pages/pages.dart';
+import 'package:mlcoin_app/repositories/repositories.dart';
+import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
 ///
 import 'blocs/blocs.dart';
 //
 void main() {
-  runApp(App());
+  //
+  final MLRepository mlRepository = MLRepository(
+    apiClient: ApiClient( Dio( ) ),
+  );
+  ///
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  ///
+  runApp(App( mlRepository : mlRepository ));
 }
 ///
 class App extends StatelessWidget{
-  //
+  ///
+  final MLRepository mlRepository;
+  ///
+  App({ Key key, @required this.mlRepository })
+      : assert(mlRepository != null),
+        super(key: key);
+  ///
+  ///
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeBloc, ThemeState>(
