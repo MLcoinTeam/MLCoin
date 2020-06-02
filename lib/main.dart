@@ -16,7 +16,7 @@ import 'package:mlcoin_app/utils/routes.dart';
 import 'blocs/blocs.dart';
 //
 void main() {
-  //runApp();
+  runApp(App());
 }
 ///
 class App extends StatelessWidget{
