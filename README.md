@@ -1,6 +1,6 @@
 # mlcoin_app
 
-ml coin flutter app
+Machine Learning coin flutter app
 
 ## Getting Started
 

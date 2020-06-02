@@ -1,13 +1,14 @@
 /*
-*  library  - pages.dart
-*  mlcoin_app 2020-06-01
+*  form_atoms.dart
+*  mlcoin_app 2020-06-02.
 *  mlcoin_app 2020-06-02
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
-library pages;
+library form_atoms;
 ///
-export 'main_screen.dart';
+export './text_field.dart';
+export './text_form.dart';
 ///
