@@ -8,6 +8,9 @@
 *  Updated by [Allan Nava]
 *  Copyright © 2020 . All rights reserved.
 */
-class MyRoutes{
-  
+class AppRoutes{
+  ///
+  static final home         = '/';
+  static final login        = '/login';
+  ///
 }

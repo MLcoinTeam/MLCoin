@@ -10,6 +10,8 @@
 */
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mlcoin_app/pages/pages.dart';
+import 'package:mlcoin_app/utils/routes.dart';
 ///
 import 'blocs/blocs.dart';
 //
@@ -24,9 +26,14 @@ class App extends StatelessWidget{
     return BlocBuilder<ThemeBloc, ThemeState>(
       builder: (context, themeState) {
         return MaterialApp(
-          title: 'JustFit Live App',
-          //theme: themeState.theme,
-
+          title: 'ML Coin Live App',
+          theme: themeState.theme,
+          initialRoute: AppRoutes.home,
+          routes: {
+            AppRoutes.home : (context) {
+              return MainScreen();
+            }
+          }
         );
       }
     );

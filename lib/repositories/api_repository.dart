@@ -8,3 +8,6 @@
 *  Updated by [Allan Nava]
 *  Copyright © 2020 . All rights reserved.
 */
+class ApiRepository{
+  
+}
