@@ -1,4 +1,4 @@
-# mlcoin_app
+# MLcoin_app
 
 Machine Learning coin flutter app
 
