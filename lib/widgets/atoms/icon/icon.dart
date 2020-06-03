@@ -17,7 +17,8 @@ class AtomIcon extends StatelessWidget {
   const AtomIcon(this.icon, {this.color = AppColors.primary1});
 
   ///
-  const AtomIcon.bottomBar(this.icon, {this.color = AppColors.primary1});
+  const AtomIcon.bottomBar(this.icon,
+      {this.color = AppColors.paletteGreyColor});
 
   ///
   @override
