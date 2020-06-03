@@ -19,6 +19,7 @@ class AppColors {
   //Primary
   static const Color primary1 = Color(0xffFFFFFF);
   static const Color primary2 = Color(0xff000000);
-  static const Color inactiveIcon = Color(0xff979DAC);
-  static const Color activeIcon = Color(0xff3772FF);
+  static const Color paletteGreyColor = Color(0xff979DAC);
+  static const Color paletteBlueColor = Color(0xff3772FF);
+  static const Color paletteYellowColor = Color(0xffF9DC5C);
 }
