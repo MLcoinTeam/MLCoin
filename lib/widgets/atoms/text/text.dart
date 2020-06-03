@@ -7,8 +7,10 @@
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
 import 'package:flutter/material.dart';
+
 ///
 import 'package:mlcoin_app/utils/values/values.dart';
+
 ///
 ///
 class AtomText extends StatelessWidget {
@@ -18,7 +20,7 @@ class AtomText extends StatelessWidget {
       this.color = AppColors.primary1,
       this.size = Constants.SIZE_18})
       : assert(textAlign != null);
-  // appbar text 
+  // appbar text
   const AtomText.appbar(this.title,
       {this.textAlign = TextAlign.center,
       this.color = AppColors.primary1,
@@ -31,17 +33,17 @@ class AtomText extends StatelessWidget {
       this.size = Constants.SIZE_12})
       : assert(textAlign != null);
   //
-  const AtomText.userFullName(
-    this.title,
-    {this.textAlign = TextAlign.left,
+  const AtomText.userFullName(this.title,
+      {this.textAlign = TextAlign.left,
       this.color = AppColors.primary2,
       this.size = Constants.SIZE_20})
       : assert(textAlign != null);
+
   ///
-  // text for bottom  
+  // text for bottom
   const AtomText.bottomBarTitle(this.title,
       {this.textAlign = TextAlign.justify,
-      this.color = AppColors.primary1,
+      this.color = AppColors.paletteGreyColor,
       //this.fontWeight = FontWeight.w400,
       this.size = Constants.SIZE_12})
       : assert(textAlign != null);
@@ -60,4 +62,5 @@ class AtomText extends StatelessWidget {
     );
   }
 }
+
 ///
