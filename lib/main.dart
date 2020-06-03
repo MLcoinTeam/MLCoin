@@ -17,8 +17,10 @@ import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
 ///
+import 'package:camera/camera.dart';
 import 'blocs/blocs.dart';
 //
+List<CameraDescription> cameras;
 void main() {
   //
   final MLRepository mlRepository = MLRepository(
