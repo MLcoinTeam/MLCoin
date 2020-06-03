@@ -18,5 +18,7 @@ class AppColors {
   static const Color lineColor = Color.fromRGBO(35, 35, 35, 1);
   //Primary
   static const Color primary1 = Color(0xffFFFFFF);
-  static const Color primary2 = Color(0xff979DAC);
+  static const Color primary2 = Color(0xff000000);
+  static const Color inactiveIcon = Color(0xff979DAC);
+  static const Color activeIcon = Color(0xff3772FF);
 }

@@ -9,20 +9,23 @@
 *  Copyright © 2020 . All rights reserved.
 */
 import 'dart:async';
+
 ///
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/utils/values/values.dart';
+
 ///
 part 'theme_event.dart';
 part 'theme_state.dart';
+
 ///
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   @override
-  ThemeState get initialState =>  ThemeState(
-    theme: darkTheme,
-  );
+  ThemeState get initialState => ThemeState(
+        theme: darkTheme,
+      );
 
   @override
   Stream<ThemeState> mapEventToState(
@@ -32,31 +35,30 @@ class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
       yield _mapThemeData(event.condition);
     }
   }
+
   ThemeState _mapThemeData(ThemeCondition condition) {
-    if (condition == ThemeCondition.dark ){
+    if (condition == ThemeCondition.dark) {
       return ThemeState(
         theme: darkTheme,
       );
-    }else{
+    } else {
       return ThemeState(
         theme: lightTheme,
       );
     }
   }
-
 }
 
 /// ========================== THEMES STUFF ============================
 ///
-final ThemeData darkTheme   = _buildDarkTheme();
-final ThemeData lightTheme  = _buildLightTheme();
+final ThemeData darkTheme = _buildDarkTheme();
+final ThemeData lightTheme = _buildLightTheme();
+
 ///
 TextTheme _buildTextTheme(TextTheme base) {
   return base.copyWith(
-    headline1: base.headline1.copyWith(
-      fontFamily: 'Roboto',
-      color: AppColors.primary1
-    ),
+    headline1: base.headline1
+        .copyWith(fontFamily: 'Roboto', color: AppColors.primary1),
     headline2: base.headline2.copyWith(
       fontFamily: 'Roboto',
     ),
@@ -95,19 +97,22 @@ TextTheme _buildTextTheme(TextTheme base) {
     ),*/
   );
 }
+
 /// - Dark Theme
-/// 
+///
 ThemeData _buildDarkTheme() {
   ///
-  final ThemeData base          = ThemeData.dark();
+  final ThemeData base = ThemeData.dark();
   final ColorScheme colorScheme = const ColorScheme.dark().copyWith(
     primary: AppColors.primaryBackground, //ColorAssets.kIconAndNavigation,
     secondary: AppColors.primaryBackground,
     //secondaryVariant: ColorAssets.kIconAndNavigation,
   );
+
   ///
   return base.copyWith(
-    appBarTheme: AppBarTheme(color: AppColors.primaryBackground, brightness: Brightness.light),
+    appBarTheme: AppBarTheme(
+        color: AppColors.primaryBackground, brightness: Brightness.light),
     scaffoldBackgroundColor: AppColors.primaryBackground,
     textTheme: _buildTextTheme(base.textTheme),
     primaryTextTheme: _buildTextTheme(base.primaryTextTheme),
@@ -115,8 +120,9 @@ ThemeData _buildDarkTheme() {
     // sets the background color of the `BottomNavigationBar`
     canvasColor: AppColors.primary1,
     // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-    primaryColor: AppColors.primary1,
-    accentColor: AppColors.primary1,
+    primaryColor: AppColors.activeIcon,
+    accentColor: AppColors.activeIcon,
+
     ///
     iconTheme: base.iconTheme.copyWith(
       color: AppColors.primaryBackground,
@@ -144,9 +150,10 @@ ThemeData _buildDarkTheme() {
     ),
   );
 }
+
 /// - Light Theme
 ThemeData _buildLightTheme() {
-  final ThemeData base          = ThemeData.light();
+  final ThemeData base = ThemeData.light();
   final ColorScheme colorScheme = const ColorScheme.light().copyWith(
     primary: AppColors.primaryBackground, //ColorAssets.kIconAndNavigation,
     secondary: AppColors.primaryBackground,
@@ -162,6 +169,7 @@ ThemeData _buildLightTheme() {
     // sets the active color of the `BottomNavigationBar` if `Brightness` is light
     primaryColor: AppColors.primary1,
     accentColor: AppColors.primary1,
+
     ///
     iconTheme: base.iconTheme.copyWith(
       color: AppColors.primaryBackground,
@@ -189,5 +197,6 @@ ThemeData _buildLightTheme() {
     ),
   );
 }
+
 ///
 ///
