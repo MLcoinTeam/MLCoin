@@ -1,5 +1,5 @@
 /*
-*  library  - coins_page.dart
+*  library  - settings_page.dart
 *  mlcoin_app 2020-06-02
 *  mlcoin_app 2020-06-02
 *
@@ -8,7 +8,7 @@
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
 ///
-library coins_page;
+library settings_page;
 ///
-export 'coins.dart';
+export 'settings.dart';
 ///

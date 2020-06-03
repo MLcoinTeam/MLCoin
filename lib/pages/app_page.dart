@@ -10,6 +10,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mlcoin_app/blocs/blocs.dart';
+import 'package:mlcoin_app/pages/pages.dart';
 ///
 import 'package:mlcoin_app/pages/scanner/scanner.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
@@ -35,7 +36,6 @@ class _AppPageState extends State<AppPage> {
     pageList.add(_coins());//monetine());
     pageList.add(_settings());//settings());
     super.initState();
-
   }
   ///
   @override
@@ -71,11 +71,11 @@ class _AppPageState extends State<AppPage> {
   }
   ///
   Widget _coins(){
-    return ScannerPage();
+    return CoinsPage();
   }
   ///
   Widget _settings(){
-    return ScannerPage();
+    return SettingsPage();
   }
   ///
 }

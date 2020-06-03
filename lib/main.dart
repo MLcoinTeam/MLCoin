@@ -62,7 +62,7 @@ class App extends StatelessWidget{
                     create: (context) => BottomBarBloc(),
                   ),
                 ],
-                child: MainPage( )
+                child: AppPage( )
               );
               //return MainPage();
             },

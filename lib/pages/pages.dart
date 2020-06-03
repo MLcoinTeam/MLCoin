@@ -13,4 +13,6 @@ export 'main_screen.dart';
 export 'app_page.dart';
 export 'scanner/scanner_page.dart';
 export 'landing/landing_page.dart';
+export 'coins/coins_page.dart';
+export 'settings/settings_page.dart';
 ///
