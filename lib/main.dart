@@ -2,7 +2,7 @@
 *  main.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-02
+*  mlcoin_app 2020-06-03
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -49,6 +49,9 @@ class App extends StatelessWidget{
           initialRoute: AppRoutes.home,
           routes: {
             AppRoutes.home : (context) {
+              return MainScreen();
+            },
+            AppRoutes.login : (context) {
               return MainScreen();
             }
           }
