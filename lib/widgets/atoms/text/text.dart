@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 ///
 import 'package:mlcoin_app/utils/values/values.dart';
 ///
+///
 class AtomText extends StatelessWidget {
   // text with title simple
   const AtomText(this.title,

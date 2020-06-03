@@ -39,21 +39,24 @@ class BottomNavigationBarStateless extends StatelessWidget {
         // Feed Page
         BottomNavigationBarItem(
           icon: AtomIcon.bottomBar(
-            FontAwesomeIcons.home, 
+            //FontAwesomeIcons.home, 
+            Icons.center_focus_strong
           ),//new Icon(FontAwesomeIcons.home),
-          title: new AtomText.bottomBarTitle("Home"),
+          title: new AtomText.bottomBarTitle("Scanner"),
         ),
         // Search Page
         BottomNavigationBarItem(
           icon: AtomIcon.bottomBar(
-            FontAwesomeIcons.calendar, 
+            Icons.photo_library,
+            //FontAwesomeIcons.calendar, 
           ),
           title: new AtomText.bottomBarTitle("Le mie monete"),
         ),
         // User Page
         BottomNavigationBarItem(
           icon: AtomIcon.bottomBar(
-            FontAwesomeIcons.americanSignLanguageInterpreting, 
+            Icons.settings,
+            //FontAwesomeIcons.americanSignLanguageInterpreting, 
           ),
           title: new AtomText.bottomBarTitle("Impostazioni"),
         ),

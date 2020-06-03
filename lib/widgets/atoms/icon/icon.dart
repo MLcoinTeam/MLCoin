@@ -1,6 +1,5 @@
 /*
-*  icon
-.dart
+*  icon.dart
 *  mlcoin_app 2020-04-02
 *  mlcoin_app 2020-06-03
 *

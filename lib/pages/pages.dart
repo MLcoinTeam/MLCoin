@@ -10,4 +10,7 @@
 library pages;
 ///
 export 'main_screen.dart';
+export 'app_page.dart';
+export 'scanner/scanner_page.dart';
+export 'landing/landing_page.dart';
 ///
