@@ -1,7 +1,7 @@
 /*
 *  text.dart
 *  mlcoin_app 2020-04-02
-*  mlcoin_app 2020-04-10
+*  mlcoin_app 2020-06-03
 *
 *  Created by [Allan Nava].
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
@@ -37,13 +37,14 @@ class AtomText extends StatelessWidget {
       this.size = Constants.SIZE_20})
       : assert(textAlign != null);
   ///
-  const AtomText.userRolePosition(
-    this.title,
-    {this.textAlign = TextAlign.left,
-      this.color = AppColors.primary2,
-      this.size = Constants.SIZE_14})
+  // text for bottom  
+  const AtomText.bottomBarTitle(this.title,
+      {this.textAlign = TextAlign.justify,
+      this.color = AppColors.primary1,
+      //this.fontWeight = FontWeight.w400,
+      this.size = Constants.SIZE_12})
       : assert(textAlign != null);
-  ///
+  //
   final String title;
   final TextAlign textAlign;
   final Color color;

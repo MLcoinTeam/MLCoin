@@ -13,4 +13,5 @@ export 'form/form_atoms.dart';
 export 'image/image.dart';
 export 'spaces/spaces.dart';
 export 'text/text.dart';
+export 'icon/icon.dart';
 //

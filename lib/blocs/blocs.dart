@@ -1,7 +1,7 @@
 /*
 *  library  - blocs.dart
 *  mlcoin_app 2020-06-02
-*  mlcoin_app 2020-06-02
+*  mlcoin_app 2020-06-03
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -10,4 +10,5 @@
 library blocs;
 ///
 export 'themes/theme_bloc.dart';
+export 'bottom_bar/bottom_bar_bloc.dart';
 ///

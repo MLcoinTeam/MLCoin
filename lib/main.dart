@@ -49,10 +49,18 @@ class App extends StatelessWidget{
           initialRoute: AppRoutes.home,
           routes: {
             AppRoutes.home : (context) {
-              return MainScreen();
+              return MultiBlocProvider(
+                providers: [
+                  BlocProvider<BottomBarBloc>(
+                    create: (context) => BottomBarBloc(),
+                  ),
+                ],
+                child: MainPage( )
+              );
+              //return MainPage();
             },
             AppRoutes.login : (context) {
-              return MainScreen();
+              return MainPage();
             }
           }
         );
