@@ -2,7 +2,7 @@
 *  theme_bloc.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-02
+*  mlcoin_app 2020-06-03
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -20,14 +20,30 @@ part 'theme_state.dart';
 ///
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   @override
-  ThemeState get initialState => ThemeInitial();
+  ThemeState get initialState =>  ThemeState(
+    theme: darkTheme,
+  );
 
   @override
   Stream<ThemeState> mapEventToState(
     ThemeEvent event,
   ) async* {
-    // TODO: implement mapEventToState
+    if (event is ThemeChanged) {
+      yield _mapThemeData(event.condition);
+    }
   }
+  ThemeState _mapThemeData(ThemeCondition condition) {
+    if (condition == ThemeCondition.dark ){
+      return ThemeState(
+        theme: darkTheme,
+      );
+    }else{
+      return ThemeState(
+        theme: lightTheme,
+      );
+    }
+  }
+
 }
 
 /// ========================== THEMES STUFF ============================
