@@ -27,7 +27,14 @@ void main() {
   ///
   BlocSupervisor.delegate = SimpleBlocDelegate();
   ///
-  runApp(App( mlRepository : mlRepository ));
+  runApp(
+    BlocProvider(
+      create: (context) {
+        return ThemeBloc();
+      },
+      child: App( mlRepository: mlRepository, ),
+    )
+  );
 }
 ///
 class App extends StatelessWidget{
