@@ -50,7 +50,7 @@ class BottomNavigationBarStateless extends StatelessWidget {
             Icons.photo_library,
             //FontAwesomeIcons.calendar, 
           ),
-          title: new AtomText.bottomBarTitle("Le mie monete"),
+          title: new AtomText.bottomBarTitle("Monete"),
         ),
         // User Page
         BottomNavigationBarItem(

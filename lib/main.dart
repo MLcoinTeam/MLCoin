@@ -21,8 +21,15 @@ import 'package:camera/camera.dart';
 import 'blocs/blocs.dart';
 //
 List<CameraDescription> cameras;
-void main() {
+Future<void> main() async{
   //
+  try {
+    WidgetsFlutterBinding.ensureInitialized();
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print("e.code=${e.code} | e.description=${e.description}");
+    //logError(e.code, e.description);
+  }
   final MLRepository mlRepository = MLRepository(
     apiClient: ApiClient( Dio( ) ),
   );
