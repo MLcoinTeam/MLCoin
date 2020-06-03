@@ -1,5 +1,7 @@
 # MLcoin_app
 
+![mlcoin-icon](./media/logo.jpg "MLCoin Icon")
+
 Machine Learning coin flutter app
 
 ## Getting Started
