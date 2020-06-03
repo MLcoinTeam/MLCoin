@@ -118,10 +118,10 @@ ThemeData _buildDarkTheme() {
     primaryTextTheme: _buildTextTheme(base.primaryTextTheme),
     accentTextTheme: _buildTextTheme(base.accentTextTheme),
     // sets the background color of the `BottomNavigationBar`
-    canvasColor: AppColors.primary1,
+    canvasColor: AppColors.paletteBlueColor,
     // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-    primaryColor: AppColors.activeIcon,
-    accentColor: AppColors.activeIcon,
+    primaryColor: AppColors.paletteGreyColor,
+    accentColor: AppColors.paletteBlueColor,
 
     ///
     iconTheme: base.iconTheme.copyWith(
@@ -167,8 +167,8 @@ ThemeData _buildLightTheme() {
     // sets the background color of the `BottomNavigationBar`
     canvasColor: AppColors.primary1,
     // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-    primaryColor: AppColors.primary1,
-    accentColor: AppColors.primary1,
+    primaryColor: AppColors.paletteGreyColor,
+    accentColor: AppColors.paletteGreyColor,
 
     ///
     iconTheme: base.iconTheme.copyWith(
