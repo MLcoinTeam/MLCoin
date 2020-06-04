@@ -43,7 +43,7 @@ class AtomText extends StatelessWidget {
   // text for bottom
   const AtomText.bottomBarTitle(this.title,
       {this.textAlign = TextAlign.justify,
-      this.color = AppColors.paletteGreyColor,
+      this.color,
       //this.fontWeight = FontWeight.w400,
       this.size = Constants.SIZE_12})
       : assert(textAlign != null);
