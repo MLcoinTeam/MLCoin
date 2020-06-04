@@ -33,6 +33,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   bool enableAudio = true;
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
 
+  String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   @override
   void initState() {
@@ -206,7 +207,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     controller.addListener(() {
       if (mounted) setState(() {});
       if (controller.value.hasError) {
-        //showInSnackBar('Camera error ${controller.value.errorDescription}');
+        //print('Camera error ${controller.value.errorDescription}');
       }
     });
 
@@ -222,7 +223,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   }
   Future<String> takePicture() async {
     if (!controller.value.isInitialized) {
-      //showInSnackBar('Error: select a camera first.');
+      //print('Error: select a camera first.');
       return null;
     }
     final Directory extDir = await getApplicationDocumentsDirectory();
@@ -247,21 +248,21 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   void onStopButtonPressed() {
     stopVideoRecording().then((_) {
       if (mounted) setState(() {});
-      showInSnackBar('Video recorded to: $videoPath');
+      print('Video recorded to: $videoPath');
     });
   }
 
   void onPauseButtonPressed() {
     pauseVideoRecording().then((_) {
       if (mounted) setState(() {});
-      //showInSnackBar('Video recording paused');
+      //print('Video recording paused');
     });
   }
 
   void onResumeButtonPressed() {
     resumeVideoRecording().then((_) {
       if (mounted) setState(() {});
-      //showInSnackBar('Video recording resumed');
+      //print('Video recording resumed');
     });
   }
 
@@ -350,7 +351,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   }
   Future<String> startVideoRecording() async {
     if (!controller.value.isInitialized) {
-      showInSnackBar('Error: select a camera first.');
+      print('Error: select a camera first.');
       return null;
     }
 
