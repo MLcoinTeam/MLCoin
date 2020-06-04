@@ -63,8 +63,51 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return Container(
-       child: Center(child: AtomText("scanner"),),
+      key: _scaffoldKey,
+      child: Column(
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: Center(
+                  child: _cameraPreviewWidget(),
+                ),
+              ),
+              decoration: BoxDecoration(
+                color: Colors.black,
+                border: Border.all(
+                  color: controller != null && controller.value.isRecordingVideo
+                      ? Colors.redAccent
+                      : Colors.grey,
+                  width: 3.0,
+                ),
+              ),
+            ),
+          )
+        ]
+      )
+      //child: Center(child: AtomText("scanner"),),
     );
+  }
+
+   /// Display the preview from the camera (or a message if the preview is not available).
+  Widget _cameraPreviewWidget() {
+    if (controller == null || !controller.value.isInitialized) {
+      return const Text(
+        'Tap a camera',
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 24.0,
+          fontWeight: FontWeight.w900,
+        ),
+      );
+    } else {
+      return AspectRatio(
+        aspectRatio: controller.value.aspectRatio,
+        child: CameraPreview(controller),
+      );
+    }
   }
 
   void onNewCameraSelected(CameraDescription cameraDescription) async {
