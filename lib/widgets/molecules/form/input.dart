@@ -10,6 +10,7 @@
 */
 //
 import 'package:flutter/material.dart';
+import 'package:mlcoin_app/utils/values/values.dart';
 ///
 ///
 class MoleculesInput extends StatelessWidget {
@@ -42,14 +43,15 @@ class MoleculesInput extends StatelessWidget {
                 label,
                 textAlign: TextAlign.left,
                 style: TextStyle(
-                  color: AppColors.primaryText,
+                  color: AppColors.primary1,
                   fontWeight: FontWeight.w500,
                   fontSize: 12,
                 ),
               ),
             ),
           ),
-          TextFieldAtom(textInputType: type, placeHolder: placeholder, onChanged: onChanged, isBorder: true,),
+          // da integrare
+          //TextFieldAtom(textInputType: type, placeHolder: placeholder, onChanged: onChanged, isBorder: true,),
         ],
       ),
     );
