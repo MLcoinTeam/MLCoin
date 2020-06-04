@@ -8,7 +8,9 @@
 */
 ///
 import 'package:flutter/material.dart';
+import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
+
 ///
 class CoinsPage extends StatefulWidget {
   CoinsPage({Key key}) : super(key: key);
@@ -16,12 +18,44 @@ class CoinsPage extends StatefulWidget {
   @override
   _CoinsPageState createState() => _CoinsPageState();
 }
+
 //
 class _CoinsPageState extends State<CoinsPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: Center(child: AtomText("coins")),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            floating: true,
+            pinned: true,
+            expandedHeight: 150.0,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                'Monete',
+                style: TextStyle(
+                  fontFamily: "Roboto",
+                ),
+              ),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                Container(
+                  child: Center(
+                    child: AtomText(
+                      "Inizia creando la tua prima raccolta di monete con il seguente bottone: ",
+                      color: AppColors.paletteGreyColor,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
