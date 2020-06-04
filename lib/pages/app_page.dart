@@ -67,7 +67,7 @@ class _AppPageState extends State<AppPage> {
       ],
       child: HomePage(),
     );*/
-    return ScannerPage();
+    return ScannerPage( mlRepository: widget.mlRepository );
   }
   ///
   Widget _coins(){

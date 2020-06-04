@@ -32,6 +32,7 @@ Future<void> main() async{
   }
   final MLRepository mlRepository = MLRepository(
     apiClient: ApiClient( Dio( ) ),
+    cameras: cameras,
   );
   ///
   BlocSupervisor.delegate = SimpleBlocDelegate();
