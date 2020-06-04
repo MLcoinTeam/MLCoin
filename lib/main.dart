@@ -2,7 +2,7 @@
 *  main.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-03
+*  mlcoin_app 2020-06-04
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -71,7 +71,7 @@ class App extends StatelessWidget{
                     create: (context) => BottomBarBloc(),
                   ),
                 ],
-                child: AppPage( )
+                child: AppPage( mlRepository: mlRepository, )
               );
               //return MainPage();
             },

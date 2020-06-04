@@ -2,7 +2,7 @@
 *  main_screen.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-02
+*  mlcoin_app 2020-06-03
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -10,7 +10,6 @@
 */
 //
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 ///
 import 'package:mlcoin_app/blocs/blocs.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
