@@ -1,13 +1,13 @@
 /*
 *  library  - molecules.dart
-*  mlcoin_app 2020-06-02
-*  mlcoin_app 2020-06-03
+*  mlcoin_app 2020-06-04
+*  mlcoin_app 2020-06-04
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
-library molecules;
+library form_molecules;
 ///
-export 'form/form_molecules.dart';
+export 'input.dart';
 ///
