@@ -213,7 +213,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     try {
       await controller.initialize();
     } on CameraException catch (e) {
-      //_showCameraException(e);
+      //print(e);
     }
 
     if (mounted) {
@@ -238,7 +238,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     try {
       await controller.takePicture(filePath);
     } on CameraException catch (e) {
-      //_showCameraException(e);
+      //print(e);
       return null;
     }
     return filePath;
@@ -254,14 +254,14 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   void onPauseButtonPressed() {
     pauseVideoRecording().then((_) {
       if (mounted) setState(() {});
-      showInSnackBar('Video recording paused');
+      //showInSnackBar('Video recording paused');
     });
   }
 
   void onResumeButtonPressed() {
     resumeVideoRecording().then((_) {
       if (mounted) setState(() {});
-      showInSnackBar('Video recording resumed');
+      //showInSnackBar('Video recording resumed');
     });
   }
 
@@ -273,7 +273,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     try {
       await controller.stopVideoRecording();
     } on CameraException catch (e) {
-      _showCameraException(e);
+      //print(e);
       return null;
     }
 
@@ -288,7 +288,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     try {
       await controller.pauseVideoRecording();
     } on CameraException catch (e) {
-      _showCameraException(e);
+      //print(e);
       rethrow;
     }
   }
@@ -301,9 +301,29 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     try {
       await controller.resumeVideoRecording();
     } on CameraException catch (e) {
-      _showCameraException(e);
+      //print(e);
       rethrow;
     }
+  }
+
+  void onTakePictureButtonPressed() {
+    takePicture().then((String filePath) {
+      if (mounted) {
+        setState(() {
+          imagePath = filePath;
+          videoController?.dispose();
+          videoController = null;
+        });
+        if (filePath != null) print('Picture saved to $filePath');
+      }
+    });
+  }
+
+  void onVideoRecordButtonPressed() {
+    startVideoRecording().then((String filePath) {
+      if (mounted) setState(() {});
+      if (filePath != null) print('Saving video to $filePath');
+    });
   }
 
   Future<void> _startVideoPlayer() async {
@@ -327,6 +347,31 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
       });
     }
     await vcontroller.play();
+  }
+  Future<String> startVideoRecording() async {
+    if (!controller.value.isInitialized) {
+      showInSnackBar('Error: select a camera first.');
+      return null;
+    }
+
+    final Directory extDir = await getApplicationDocumentsDirectory();
+    final String dirPath = '${extDir.path}/Movies/flutter_test';
+    await Directory(dirPath).create(recursive: true);
+    final String filePath = '$dirPath/${timestamp()}.mp4';
+
+    if (controller.value.isRecordingVideo) {
+      // A recording is already started, do nothing.
+      return null;
+    }
+
+    try {
+      videoPath = filePath;
+      await controller.startVideoRecording(filePath);
+    } on CameraException catch (e) {
+      print(e);
+      return null;
+    }
+    return filePath;
   }
 
 }
