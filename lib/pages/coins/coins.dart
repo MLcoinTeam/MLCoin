@@ -29,8 +29,13 @@ class _CoinsPageState extends State<CoinsPage> {
           SliverAppBar(
             floating: true,
             pinned: true,
-            expandedHeight: 150.0,
+            expandedHeight: 140.0,
+            backgroundColor: AppColors.paletteGreyColor,
             flexibleSpace: FlexibleSpaceBar(
+              titlePadding: EdgeInsets.symmetric(
+                vertical: 10.0,
+                horizontal: 20,
+              ),
               title: Text(
                 'Monete',
                 style: TextStyle(
