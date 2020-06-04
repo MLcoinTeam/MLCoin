@@ -11,4 +11,5 @@
 library ui_organisms;
 //
 export 'bottom_bar.dart';
+export 'card.dart';
 //
