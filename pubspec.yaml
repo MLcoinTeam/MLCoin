@@ -3,7 +3,7 @@
 #   Autore          :   Allan Nava
 #   Modificato      :   Allan Nava
 #   Data            :   01/06/2020
-#   Aggiornamento   :   03/06/2020
+#   Aggiornamento   :   05/06/2020
 #
 #
 #################################################################################
@@ -40,8 +40,10 @@ dependencies:
   body_parser: ^1.1.1
   equatable: ^1.1.1
   flutter_bloc: ^4.0.0
-  tflite: ^1.0.6
-  camera: ^0.5.8+2
+  tflite: ^1.0.5
+  camera: ^0.5.7+4
+  #tflite: ^1.0.6
+  #camera: ^0.5.8+2
   video_player: ^0.10.0
   #
 #
