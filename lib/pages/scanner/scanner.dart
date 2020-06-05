@@ -68,6 +68,15 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return Container(
         key: _scaffoldKey,
         child: Column(children: <Widget>[
+          Align(
+            child: Row(
+              children: [
+                Container(
+                  color: Colors.black,
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: Container(
               child: Padding(
