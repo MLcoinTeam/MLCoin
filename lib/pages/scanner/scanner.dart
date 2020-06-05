@@ -1,20 +1,17 @@
 /*
 *  scanner.dart
 *  mlcoin_app 2020-04-02
-*  mlcoin_app 2020-06-04
+*  mlcoin_app 2020-06-05
 *
 *  Created by [Allan Nava].
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
 import 'dart:io';
-
 ///
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:video_player/video_player.dart';
-
 ///
 ///
 ///
@@ -30,10 +27,6 @@ class ScannerPage extends StatefulWidget {
 class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   CameraController controller;
   String imagePath;
-  // String videoPath;
-  //VideoPlayerController videoController;
-  //VoidCallback videoPlayerListener;
-  //bool enableAudio = true;
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
@@ -42,6 +35,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    print("camers $cameras");
   }
 
   @override
@@ -71,30 +65,32 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Container(
         key: _scaffoldKey,
-        child: Column(children: <Widget>[
-          Expanded(
-            child: Container(
-              child: Padding(
-                padding: const EdgeInsets.all(1.0),
-                child: Center(
-                  child: _cameraPreviewWidget(),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Center(
+                    child: _cameraPreviewWidget(),
+                  ),
                 ),
               ),
-//              decoration: BoxDecoration(
-//                color: Colors.black,
-//                border: Border.all(
-//                  color: controller != null && controller.value.isRecordingVideo
-//                      ? Colors.redAccent
-//                      : Colors.grey,
-//                  width: 3.0,
-//                ),
-//              ),
             ),
-          ),
-          _captureControlRowWidget(),
-        ])
-        //child: Center(child: AtomText("scanner"),),
-        );
+            _captureControlRowWidget(),
+            Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  _cameraTogglesRowWidget()
+                ]
+              )
+            ),
+          ]
+        )
+//child: Center(child: AtomText("scanner"),),
+    );
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
@@ -131,37 +127,6 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
               ? onTakePictureButtonPressed
               : null,
         ),
-//        IconButton(
-//          icon: const Icon(Icons.videocam),
-//          color: Colors.blue,
-//          onPressed: controller != null &&
-//                  controller.value.isInitialized &&
-//                  !controller.value.isRecordingVideo
-//              ? onVideoRecordButtonPressed
-//              : null,
-//        ),
-//        IconButton(
-//          icon: controller != null && controller.value.isRecordingPaused
-//              ? Icon(Icons.play_arrow)
-//              : Icon(Icons.pause),
-//          color: Colors.blue,
-//          onPressed: controller != null &&
-//                  controller.value.isInitialized &&
-//                  controller.value.isRecordingVideo
-//              ? (controller != null && controller.value.isRecordingPaused
-//                  ? onResumeButtonPressed
-//                  : onPauseButtonPressed)
-//              : null,
-//        ),
-//        IconButton(
-//          icon: const Icon(Icons.stop),
-//          color: Colors.red,
-//          onPressed: controller != null &&
-//                  controller.value.isInitialized &&
-//                  controller.value.isRecordingVideo
-//              ? onStopButtonPressed
-//              : null,
-//        )
       ],
     );
   }
@@ -189,7 +154,6 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
         );
       }
     }
-
     return Row(children: toggles);
   }
 
@@ -246,136 +210,49 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return filePath;
   }
 
-//  void onStopButtonPressed() {
-//    stopVideoRecording().then((_) {
-//      if (mounted) setState(() {});
-//      print('Video recorded to: $videoPath');
-//    });
-//  }
-
-//  void onPauseButtonPressed() {
-//    pauseVideoRecording().then((_) {
-//      if (mounted) setState(() {});
-//      //print('Video recording paused');
-//    });
-//  }
-
-//  void onResumeButtonPressed() {
-//    resumeVideoRecording().then((_) {
-//      if (mounted) setState(() {});
-//      //print('Video recording resumed');
-//    });
-//  }
-
-//  Future<void> stopVideoRecording() async {
-//    if (!controller.value.isRecordingVideo) {
-//      return null;
-//    }
-//
-//    try {
-//      await controller.stopVideoRecording();
-//    } on CameraException catch (e) {
-//      //print(e);
-//      return null;
-//    }
-//
-//    await _startVideoPlayer();
-//  }
-//
-//  Future<void> pauseVideoRecording() async {
-//    if (!controller.value.isRecordingVideo) {
-//      return null;
-//    }
-//
-//    try {
-//      await controller.pauseVideoRecording();
-//    } on CameraException catch (e) {
-//      //print(e);
-//      rethrow;
-//    }
-//  }
-//
-//  Future<void> resumeVideoRecording() async {
-//    if (!controller.value.isRecordingVideo) {
-//      return null;
-//    }
-//
-//    try {
-//      await controller.resumeVideoRecording();
-//    } on CameraException catch (e) {
-//      //print(e);
-//      rethrow;
-//    }
-//  }
-
   void onTakePictureButtonPressed() {
     takePicture().then((String filePath) {
       if (mounted) {
         setState(() {
           imagePath = filePath;
-//          videoController?.dispose();
-//          videoController = null;
         });
         if (filePath != null) print('Picture saved to $filePath');
       }
     });
   }
-
-//  void onVideoRecordButtonPressed() {
-//    startVideoRecording().then((String filePath) {
-//      if (mounted) setState(() {});
-//      if (filePath != null) print('Saving video to $filePath');
-//    });
-//  }
-
-//  Future<void> _startVideoPlayer() async {
-//    final VideoPlayerController vcontroller =
-//        VideoPlayerController.file(File(videoPath));
-//    videoPlayerListener = () {
-//      if (videoController != null && videoController.value.size != null) {
-//        // Refreshing the state to update video player with the correct ratio.
-//        if (mounted) setState(() {});
-//        videoController.removeListener(videoPlayerListener);
-//      }
-//    };
-//    vcontroller.addListener(videoPlayerListener);
-//    await vcontroller.setLooping(true);
-//    await vcontroller.initialize();
-//    await videoController?.dispose();
-//    if (mounted) {
-//      setState(() {
-//        imagePath = null;
-//        videoController = vcontroller;
-//      });
-//    }
-//    await vcontroller.play();
-//  }
-//
-//  Future<String> startVideoRecording() async {
-//    if (!controller.value.isInitialized) {
-//      print('Error: select a camera first.');
-//      return null;
-//    }
-//
-//    final Directory extDir = await getApplicationDocumentsDirectory();
-//    final String dirPath = '${extDir.path}/Movies/flutter_test';
-//    await Directory(dirPath).create(recursive: true);
-//    final String filePath = '$dirPath/${timestamp()}.mp4';
-//
-//    if (controller.value.isRecordingVideo) {
-//      // A recording is already started, do nothing.
-//      return null;
-//    }
-//
-//    try {
-//      videoPath = filePath;
-//      await controller.startVideoRecording(filePath);
-//    } on CameraException catch (e) {
-//      print(e);
-//      return null;
-//    }
-//    return filePath;
-//  }
+  /// Display the thumbnail of the captured image or video.
+  /*Widget _thumbnailWidget() {
+    return Expanded(
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            videoController == null && imagePath == null
+                ? Container()
+                : SizedBox(
+                    child: (videoController == null)
+                        ? Image.file(File(imagePath))
+                        : Container(
+                            child: Center(
+                              child: AspectRatio(
+                                  aspectRatio:
+                                      videoController.value.size != null
+                                          ? videoController.value.aspectRatio
+                                          : 1.0,
+                                  child: VideoPlayer(videoController)),
+                            ),
+                            decoration: BoxDecoration(
+                                border: Border.all(color: Colors.pink)),
+                          ),
+                    width: 64.0,
+                    height: 64.0,
+                  ),
+          ],
+        ),
+      ),
+    );
+  }*/
 }
 
 /// Returns a suitable camera icon for [direction].
