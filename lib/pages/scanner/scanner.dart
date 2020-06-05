@@ -12,6 +12,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
+import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:path_provider/path_provider.dart';
 
 ///
@@ -65,41 +66,53 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(
+      child: Container(
         key: _scaffoldKey,
-        child: Column(children: <Widget>[
-          Align(
-            child: Row(
-              children: [
-                Container(
-                  color: Colors.black,
-                ),
-              ],
+        child: Column(
+          children: [
+            Container(
+              height: 50,
+              margin: EdgeInsets.symmetric(horizontal: 14),
+              decoration: BoxDecoration(
+                color: Color(0x80000000),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  AtomIcon(Icons.flash_on),
+                ],
+              ),
             ),
-          ),
-          Expanded(
-            child: Container(
+            Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(1.0),
+                padding: const EdgeInsets.all(0),
                 child: Center(
                   child: _cameraPreviewWidget(),
                 ),
               ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(5.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                _captureControlRowWidget(),
-                _cameraTogglesRowWidget(),
-              ],
+            Container(
+              height: 115,
+              margin: EdgeInsets.only(left: 14, right: 14, bottom: 14),
+              decoration: BoxDecoration(
+                color: Color(0x80000000),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _captureControlRowWidget(),
+                  _cameraTogglesRowWidget(),
+                ],
+              ),
             ),
-          ),
-        ])
+          ],
 //child: Center(child: AtomText("scanner"),),
-        );
+        ),
+      ),
+    );
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
