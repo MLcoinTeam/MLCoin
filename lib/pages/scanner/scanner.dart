@@ -7,11 +7,13 @@
 *  Copyright © 2020 [Allan Nava]. All rights reserved.
 */
 import 'dart:io';
+
 ///
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:path_provider/path_provider.dart';
+
 ///
 ///
 ///
@@ -65,32 +67,30 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return Container(
         key: _scaffoldKey,
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(1.0),
-                  child: Center(
-                    child: _cameraPreviewWidget(),
-                  ),
+        child: Column(children: <Widget>[
+          Expanded(
+            child: Container(
+              child: Padding(
+                padding: const EdgeInsets.all(1.0),
+                child: Center(
+                  child: _cameraPreviewWidget(),
                 ),
               ),
             ),
-            _captureControlRowWidget(),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  _cameraTogglesRowWidget()
-                ]
-              )
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                _captureControlRowWidget(),
+                _cameraTogglesRowWidget(),
+              ],
             ),
-          ]
-        )
+          ),
+        ])
 //child: Center(child: AtomText("scanner"),),
-    );
+        );
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
@@ -114,20 +114,14 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   /// Display the control bar with buttons to take pictures and record videos.
   Widget _captureControlRowWidget() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      mainAxisSize: MainAxisSize.max,
-      children: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.camera_alt),
-          color: Colors.blue,
-          onPressed: controller != null &&
-                  controller.value.isInitialized &&
-                  !controller.value.isRecordingVideo
-              ? onTakePictureButtonPressed
-              : null,
-        ),
-      ],
+    return IconButton(
+      icon: const Icon(Icons.camera_alt),
+      color: Colors.blue,
+      onPressed: controller != null &&
+              controller.value.isInitialized &&
+              !controller.value.isRecordingVideo
+          ? onTakePictureButtonPressed
+          : null,
     );
   }
 
@@ -143,7 +137,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           SizedBox(
             width: 90.0,
             child: RadioListTile<CameraDescription>(
-              title: Icon(getCameraLensIcon(cameraDescription.lensDirection)),
+              title: Icon(
+                getCameraLensIcon(cameraDescription.lensDirection),
+              ),
               groupValue: controller?.description,
               value: cameraDescription,
               onChanged: controller != null && controller.value.isRecordingVideo
@@ -220,6 +216,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
       }
     });
   }
+
   /// Display the thumbnail of the captured image or video.
   /*Widget _thumbnailWidget() {
     return Expanded(
