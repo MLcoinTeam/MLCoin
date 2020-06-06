@@ -2,7 +2,7 @@
 
 ![mlcoin-icon](./media/logo.jpg "MLCoin Icon")
 
-Machine Learning coin flutter app
+makes the coin recognition easy by using fotocamera and Machine Learning.
 
 ## Getting Started
 
