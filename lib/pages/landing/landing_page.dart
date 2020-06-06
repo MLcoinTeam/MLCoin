@@ -1,7 +1,7 @@
 /*
 *  library  - landing_page.dart
 *  mlcoin_app 2020-06-02
-*  mlcoin_app 2020-06-02
+*  mlcoin_app 2020-06-06
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
@@ -9,3 +9,7 @@
 */
 ///
 library landing_page;
+///
+export 'splash.dart';
+export 'landing.dart';
+///

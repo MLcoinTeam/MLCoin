@@ -29,9 +29,20 @@ class _AppPageState extends State<AppPage> {
   ///
   /// x lo stack
   final List<Widget> pageList = List<Widget>();
+  bool splashViewed = false;
   ///
   @override
   void initState() {
+    ///
+    print("initState $splashViewed");
+    Future.delayed(const Duration(milliseconds: 900), () {
+      print("delayed");
+      setState((){
+        splashViewed=true;
+        print("delayed $splashViewed");
+      });
+    });
+    ///
     pageList.add(_home());//scanner());
     pageList.add(_coins());//monetine());
     pageList.add(_settings());//settings());
@@ -42,17 +53,22 @@ class _AppPageState extends State<AppPage> {
   Widget build(BuildContext context) {
     return BlocBuilder<BottomBarBloc, AppTab>(
       builder: (context, activeTab) {
-        return Scaffold(
-          bottomNavigationBar: BottomNavigationBarStateless(
-            activeTab: activeTab, 
-            onTabSelected: (tab ) => BlocProvider.of<BottomBarBloc>(context).add(BottombarUpdated(tab))
-          ),
-          //body: body(activeTab),
-          body: IndexedStack(
-            index: activeTab.index,
-            children: pageList,
-          )
-        );
+        if(splashViewed){
+          return Scaffold(
+            bottomNavigationBar: BottomNavigationBarStateless(
+              activeTab: activeTab, 
+              onTabSelected: (tab ) => BlocProvider.of<BottomBarBloc>(context).add(BottombarUpdated(tab))
+            ),
+            //body: body(activeTab),
+            body: IndexedStack(
+              index: activeTab.index,
+              children: pageList,
+            )
+          );
+        }else{
+          print("splashPage");
+          return SplashPage();
+        }
       }
     ); 
   }
