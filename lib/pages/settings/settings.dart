@@ -6,6 +6,7 @@
 *  Created by [Filippo Fresilli & Allan Nava].
 *  Copyright © 2020 [Filippo Fresilli & Allan Nava]. All rights reserved.
 */
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
@@ -20,25 +21,16 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CupertinoPageScaffold(
       backgroundColor: Color(0xffFFFFFF),
-      body: CustomScrollView(
+      child: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            floating: true,
-            pinned: true,
-            expandedHeight: 140.0,
+          CupertinoSliverNavigationBar(
             backgroundColor: AppColors.paletteGreyColor,
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 20,
-              ),
-              title: Text(
-                'Impostazioni',
-                style: TextStyle(
-                  fontFamily: "Roboto",
-                ),
+            largeTitle: Text(
+              'Impostazioni',
+              style: TextStyle(
+                color: Colors.white,
               ),
             ),
           ),
@@ -86,9 +78,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
-                  child: AtomText(
+                  child: Text(
                     'Impostazioni App',
-                    color: Colors.black,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Container(
@@ -128,9 +124,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
-                  child: AtomText(
+                  child: Text(
                     'Personalizzazione',
-                    color: Colors.black,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Container(
@@ -151,14 +151,8 @@ class _SettingsPageState extends State<SettingsPage> {
                         children: <Widget>[
                           const ListTile(
                             title: AtomText(
-                              'Versione PRO',
+                              'Tema scuro',
                               color: Colors.black,
-                            ),
-                            subtitle: Text(
-                              'Sblocca tutte le caratteristiche PRO di questa app.',
-                              style: TextStyle(
-                                color: Colors.black,
-                              ),
                             ),
                           ),
                         ],
@@ -170,9 +164,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
-                  child: AtomText(
+                  child: Text(
                     'Generale',
-                    color: Colors.black,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Container(
@@ -212,9 +210,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   padding: EdgeInsets.symmetric(
                     horizontal: 14,
                   ),
-                  child: AtomText(
+                  child: Text(
                     'Altro',
-                    color: Colors.black,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
                 Container(
