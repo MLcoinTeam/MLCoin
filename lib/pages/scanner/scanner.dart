@@ -3,8 +3,8 @@
 *  mlcoin_app 2020-04-02
 *  mlcoin_app 2020-06-05
 *
-*  Created by [Allan Nava].
-*  Copyright © 2020 [Allan Nava]. All rights reserved.
+*  Created by [Filippo Fresilli & Allan Nava].
+*  Copyright © 2020 [Filippo Fresilli & Allan Nava]. All rights reserved.
 */
 import 'dart:io';
 

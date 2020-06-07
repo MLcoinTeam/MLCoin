@@ -11,6 +11,7 @@
 //
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
+
 ///
 class OrganismCard extends StatelessWidget {
   final String title;
@@ -19,12 +20,11 @@ class OrganismCard extends StatelessWidget {
   // andrebbero fatti altri initializer tipo atomtext
 
   const OrganismCard({
-    Key key, 
     this.title,
     this.onPressed,
-  }) : super(key: key);
+  });
   //
-  // Card with icon 
+  // Card with icon
   /*const OrganismCard.icon(
       this.title,
       {this.textAlign = TextAlign.center,})
