@@ -39,11 +39,11 @@ class _SettingsPageState extends State<SettingsPage> {
               [
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: 10,
                     vertical: 14,
                   ),
                   child: Card(
-                    elevation: 5,
+                    elevation: 2,
                     color: Colors.white,
                     child: InkWell(
                       splashColor: AppColors.paletteGreyColor,
@@ -54,19 +54,28 @@ class _SettingsPageState extends State<SettingsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           const ListTile(
-                            leading: AtomIcon(
+                            leading: Icon(
                               Icons.star,
                               color: AppColors.paletteYellowColor,
                             ),
-                            title: AtomText(
+                            title: Text(
                               'Versione PRO',
-                              color: Colors.black,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                             subtitle: Text(
                               'Sblocca tutte le caratteristiche PRO di questa app.',
                               style: TextStyle(
                                 color: Colors.black,
+                                fontSize: 12,
                               ),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: AppColors.paletteGreyColor,
                             ),
                           ),
                         ],
@@ -89,11 +98,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: 10,
                     vertical: 14,
                   ),
                   child: Card(
-                    elevation: 5,
+                    elevation: 2,
                     color: Colors.white,
                     child: InkWell(
                       splashColor: AppColors.paletteGreyColor,
@@ -135,11 +144,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: 10,
                     vertical: 14,
                   ),
                   child: Card(
-                    elevation: 5,
+                    elevation: 2,
                     color: Colors.white,
                     child: InkWell(
                       splashColor: AppColors.paletteGreyColor,
@@ -150,10 +159,10 @@ class _SettingsPageState extends State<SettingsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           const ListTile(
-                            title: AtomText(
-                              'Tema scuro',
-                              color: Colors.black,
-                            ),
+                            title: Text('Tema scuro',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                )),
                           ),
                         ],
                       ),
@@ -175,11 +184,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: 10,
                     vertical: 14,
                   ),
                   child: Card(
-                    elevation: 5,
+                    elevation: 2,
                     color: Colors.white,
                     child: InkWell(
                       splashColor: AppColors.paletteGreyColor,
@@ -221,11 +230,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 14,
+                    horizontal: 10,
                     vertical: 14,
                   ),
                   child: Card(
-                    elevation: 5,
+                    elevation: 2,
                     color: Colors.white,
                     child: InkWell(
                       splashColor: AppColors.paletteGreyColor,
@@ -236,9 +245,17 @@ class _SettingsPageState extends State<SettingsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           const ListTile(
-                            title: AtomText(
+                            title: Text(
                               'Contattaci',
-                              color: Colors.black,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            trailing: Icon(
+                              Icons.arrow_forward_ios,
+                              color: AppColors.paletteGreyColor,
                             ),
                           ),
                         ],
