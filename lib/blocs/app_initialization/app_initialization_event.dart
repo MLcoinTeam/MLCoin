@@ -14,3 +14,20 @@ abstract class AppInitializationEvent extends Equatable {
   const AppInitializationEvent();
 }
 ///
+class ApplicationInitializationEvent extends AppInitializationEvent {
+  
+  final ApplicationInitializationEventType type;
+
+  ApplicationInitializationEvent({
+    this.type: ApplicationInitializationEventType.start,
+  }) : assert(type != null);
+
+  @override
+  List<Object> get props => [ type ];
+}
+///
+enum ApplicationInitializationEventType {
+  start,
+  stop,
+} 
+///
