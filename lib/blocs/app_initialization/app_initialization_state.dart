@@ -2,7 +2,7 @@
 *  app_inizialization_bloc.dart
 *  
 *  mlcoin_app 2020-06-07
-*  mlcoin_app 2020-06-07
+*  mlcoin_app 2020-06-08
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]

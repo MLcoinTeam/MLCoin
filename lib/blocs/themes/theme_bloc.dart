@@ -2,24 +2,21 @@
 *  theme_bloc.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-03
+*  mlcoin_app 2020-06-08
 *
 *  Created by [Filippo Fresilli & Allan Nava].
 *  Updated by [Filippo Fresilli & Allan Nava]
 *  Copyright © 2020 . All rights reserved.
 */
 import 'dart:async';
-
 ///
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/utils/values/values.dart';
-
 ///
 part 'theme_event.dart';
 part 'theme_state.dart';
-
 ///
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
   @override

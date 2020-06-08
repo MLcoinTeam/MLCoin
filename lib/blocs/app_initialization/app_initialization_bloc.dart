@@ -25,6 +25,9 @@ class AppInitializationBloc extends Bloc<AppInitializationEvent, AppInitializati
   Stream<AppInitializationState> mapEventToState(
     AppInitializationEvent event,
   ) async* {
+    if (event is ApplicationInitializationEvent) {
+      //yield* _mapApplicationInitializationData(event.type);
+    }
     /*if (!currentState.isInitialized){
       yield ApplicationInitializationState.notInitialized();
     }
@@ -38,6 +41,16 @@ class AppInitializationBloc extends Bloc<AppInitializationEvent, AppInitializati
 
     if (event.type == ApplicationInitializationEventType.stop){
       yield ApplicationInitializationState.initialized();
+    }*/
+  }
+
+  Future<AppInitializationState> _mapApplicationInitializationData(ApplicationInitializationEventType type) async {
+    /*if (!type.isInitialized){
+      yield ApplicationInitializationState.notInitialized();
+    }*/
+    /*if (type == ApplicationInitializationEventType.start) {
+      await Future.delayed(const Duration(milliseconds: 900));
+      return ApplicationInitializationState.progressing(progress);
     }*/
   }
 }
