@@ -6,6 +6,8 @@
 *  Created by [Filippo Fresilli & Allan Nava].
 *  Copyright © 2020 [Filippo Fresilli & Allan Nava]. All rights reserved.
 */
+import 'package:flutter/cupertino.dart';
+
 ///
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
@@ -13,8 +15,6 @@ import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 
 ///
 class CoinsPage extends StatefulWidget {
-  CoinsPage({Key key}) : super(key: key);
-
   @override
   _CoinsPageState createState() => _CoinsPageState();
 }
@@ -23,25 +23,22 @@ class CoinsPage extends StatefulWidget {
 class _CoinsPageState extends State<CoinsPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return CupertinoPageScaffold(
       backgroundColor: Color(0xffFFFFFF),
-      body: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            floating: true,
-            pinned: true,
-            expandedHeight: 140.0,
+      child: CustomScrollView(
+        slivers: <Widget>[
+          CupertinoSliverNavigationBar(
             backgroundColor: AppColors.paletteGreyColor,
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 20,
+            trailing: InkWell(
+              child: Icon(
+                Icons.add,
               ),
-              title: Text(
-                'Monete',
-                style: TextStyle(
-                  fontFamily: "Roboto",
-                ),
+              onTap: () {},
+            ),
+            largeTitle: Text(
+              'Monete',
+              style: TextStyle(
+                color: Colors.white,
               ),
             ),
           ),
@@ -54,6 +51,28 @@ class _CoinsPageState extends State<CoinsPage> {
                       "Inizia creando la tua prima raccolta di monete con il seguente bottone: ",
                       color: AppColors.paletteGreyColor,
                       textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 14.0),
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 1,
+                        color: AppColors.paletteGreyColor,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Crea una raccolta di monete',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
                   ),
                 ),
