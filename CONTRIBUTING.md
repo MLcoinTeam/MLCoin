@@ -1,4 +1,4 @@
-Contributing to Flutter
+Contributing to MLCoin
 =======================
 
 _See also: [MLCoin's code of conduct](CODE_OF_CONDUCT.md)_
