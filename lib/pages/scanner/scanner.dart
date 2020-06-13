@@ -30,6 +30,7 @@ class ScannerPage extends StatefulWidget {
 class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   CameraController controller;
   String imagePath;
+  Future<void> _initializeControllerFuture;
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
@@ -38,7 +39,13 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    if (cameras != null) _setController();
     print("camers $cameras");
+  }
+
+  _setController() {
+    controller = CameraController(cameras.first, ResolutionPreset.medium);
+    _initializeControllerFuture = controller.initialize();
   }
 
   @override
@@ -117,21 +124,20 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   /// Display the preview from the camera (or a message if the preview is not available).
   Widget _cameraPreviewWidget() {
-    if (controller == null || !controller.value.isInitialized) {
-      return const Text(
-        'Tap a camera',
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 24.0,
-          fontWeight: FontWeight.w900,
-        ),
-      );
-    } else {
-      return AspectRatio(
-        aspectRatio: controller.value.aspectRatio,
-        child: CameraPreview(controller),
-      );
-    }
+      return FutureBuilder<void>(
+          future: _initializeControllerFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return AspectRatio(
+                child: CameraPreview(controller),
+                aspectRatio: controller.value.aspectRatio,
+              );
+            } else
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+          }
+          );
   }
 
   /// Display the control bar with buttons to take pictures and record videos.
@@ -139,9 +145,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return IconButton(
       icon: const Icon(Icons.camera_alt),
       color: Colors.blue,
-      onPressed: controller != null &&
-              controller.value.isInitialized &&
-              !controller.value.isRecordingVideo
+      onPressed: controller != null 
           ? onTakePictureButtonPressed
           : null,
     );
@@ -212,7 +216,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     final Directory extDir = await getApplicationDocumentsDirectory();
     final String dirPath = '${extDir.path}/Pictures/flutter_test';
     await Directory(dirPath).create(recursive: true);
-    final String filePath = '$dirPath/${DateTime.now()}.jpg';
+    final String filePath = '$dirPath/${DateTime.now()}.jpg'; 
 
     if (controller.value.isTakingPicture) {
       // A capture is already pending, do nothing.
