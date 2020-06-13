@@ -14,6 +14,7 @@ import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 ///
 ///
@@ -82,7 +83,11 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
         children: <Widget>[
           _cameraPreviewWidget(),
           Positioned.fill(
-            child: Image.asset("assets/images/focus_rectangle.png"),
+            child: SvgPicture.asset("assets/images/focus_rectangle.svg"),
+            left: 60,
+            right: 60,
+            top: 60,
+            bottom: 60,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
