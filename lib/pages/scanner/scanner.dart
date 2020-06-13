@@ -84,36 +84,57 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           _cameraPreviewWidget(),
           Positioned.fill(
             child: SvgPicture.asset("assets/images/focus_rectangle.svg"),
-            left: 60,
-            right: 60,
-            top: 60,
-            bottom: 60,
+            left: 90,
+            right: 90,
+            //top: 60,
+            //bottom: 60,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                child: FlatButton(
-                  child: Icon(
-                    Icons.flash_on,
-                    size: 30,
+          SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: 14.0,
+                      right: 14.0,
+                      top: 14,
+                    ),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: Color(0x80000000),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: FlatButton(
+                            child: Icon(
+                              Icons.flash_on,
+                              size: 30,
+                            ),
+                            onPressed: () {},
+                          ),
+                          //margin: EdgeInsets.only(top: 20),
+                        ),
+                        Container(
+                          child: FlatButton(
+                            child: Icon(
+                              Icons.photo_size_select_large,
+                              size: 30,
+                            ),
+                            onPressed: () {},
+                          ),
+                          //margin: EdgeInsets.only(top: 20, left: 20),
+                        ),
+                      ],
+                    ),
                   ),
-                  onPressed: () {},
                 ),
-                margin: EdgeInsets.only(top: 20),
-              ),
-              Container(
-                child: FlatButton(
-                  child: Icon(
-                    Icons.photo_size_select_large,
-                    size: 30,
-                  ),
-                  onPressed: () {},
-                ),
-                margin: EdgeInsets.only(top: 20, left: 20),
-              ),
-            ],
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -150,7 +171,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _captureControlRowWidget() {
     return Container(
       margin: EdgeInsets.only(bottom: 30, right: 20),
-      alignment: Alignment.bottomCenter,
+      // alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
           Icons.camera,
@@ -166,7 +187,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _previewControlRowWidget() {
     return Container(
       margin: EdgeInsets.only(bottom: 30),
-      alignment: Alignment.bottomCenter,
+      //alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
           Icons.photo_size_select_actual,
