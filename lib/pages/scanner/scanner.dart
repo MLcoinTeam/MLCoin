@@ -75,12 +75,16 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SafeArea(
+        child: Container(
       key: _scaffoldKey,
       child: Stack(
         fit: StackFit.expand,
         children: <Widget>[
           _cameraPreviewWidget(),
+          Positioned.fill(
+            child: Image.asset("assets/images/focus_rectangle.png"),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +122,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           ),
         ],
       ),
-    );
+    ));
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
