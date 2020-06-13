@@ -32,6 +32,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   String imagePath;
   Future<void> _initializeControllerFuture;
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
+  int selectedCamera;
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
@@ -45,6 +46,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   _setController() {
     controller = CameraController(cameras.first, ResolutionPreset.medium);
+    selectedCamera = 0;
     _initializeControllerFuture = controller.initialize();
   }
 
@@ -76,47 +78,46 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return SafeArea(
       child: Container(
         key: _scaffoldKey,
-        child: Column(
-          children: [
-            Container(
-              height: 50,
-              margin: EdgeInsets.symmetric(horizontal: 14),
-              decoration: BoxDecoration(
-                color: Color(0x80000000),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  AtomIcon(Icons.flash_on),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(0),
-                child: Center(
-                  child: _cameraPreviewWidget(),
+        child: Stack(
+          fit: StackFit.expand,
+          children: <Widget>[
+            _cameraPreviewWidget(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  child: FlatButton(
+                    child: Icon(
+                      Icons.flash_on,
+                      size: 30,
+                    ),
+                    onPressed: () {},
+                  ),
+                  margin: EdgeInsets.only(top: 20),
                 ),
-              ),
+                Container(
+                  child: FlatButton(
+                    child: Icon(
+                      Icons.photo_size_select_large,
+                      size: 30,
+                    ),
+                    onPressed: () {},
+                  ),
+                  margin: EdgeInsets.only(top: 20, left: 20),
+                ),
+              ],
             ),
-            Container(
-              height: 115,
-              margin: EdgeInsets.only(left: 14, right: 14, bottom: 14),
-              decoration: BoxDecoration(
-                color: Color(0x80000000),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  _captureControlRowWidget(),
-                  _cameraTogglesRowWidget(),
-                ],
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                _previewControlRowWidget(),
+                _captureControlRowWidget(),
+                _swapControlRowWidget(),
+              ],
             ),
           ],
-//child: Center(child: AtomText("scanner"),),
         ),
       ),
     );
@@ -124,37 +125,71 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   /// Display the preview from the camera (or a message if the preview is not available).
   Widget _cameraPreviewWidget() {
-      return FutureBuilder<void>(
-          future: _initializeControllerFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState == ConnectionState.done) {
-              return AspectRatio(
-                child: CameraPreview(controller),
-                aspectRatio: controller.value.aspectRatio,
-              );
-            } else
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-          }
-          );
+    return FutureBuilder<void>(
+        future: _initializeControllerFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return AspectRatio(
+              child: CameraPreview(controller),
+              aspectRatio: controller.value.aspectRatio,
+            );
+          } else
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+        });
   }
 
   /// Display the control bar with buttons to take pictures and record videos.
   Widget _captureControlRowWidget() {
-    return IconButton(
-      icon: const Icon(Icons.camera_alt),
-      color: Colors.blue,
-      onPressed: controller != null 
-          ? onTakePictureButtonPressed
-          : null,
+    return Container(
+      margin: EdgeInsets.only(bottom: 30, right: 20),
+      alignment: Alignment.bottomCenter,
+      child: IconButton(
+        icon: const Icon(
+          Icons.camera,
+          size: 60,
+        ),
+        color: Colors.red,
+        onPressed: controller != null ? onTakePictureButtonPressed : null,
+      ),
+    );
+  }
+
+  /// Display the control bar with buttons to preview gallery images.
+  Widget _previewControlRowWidget() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 30),
+      alignment: Alignment.bottomCenter,
+      child: IconButton(
+        icon: const Icon(
+          Icons.photo_size_select_actual,
+          size: 40,
+        ),
+        color: Colors.grey,
+        onPressed: controller != null ? onTakePictureButtonPressed : null,
+      ),
+    );
+  }
+
+  /// Display the control bar with buttons to Swap Camera.
+  Widget _swapControlRowWidget() {
+    return Container(
+      margin: EdgeInsets.only(bottom: 30),
+      child: IconButton(
+        icon: const Icon(
+          Icons.switch_camera,
+          size: 40,
+        ),
+        color: Colors.grey,
+        onPressed: controller != null ? swapCamera : null,
+      ),
     );
   }
 
   /// Display a row of toggle to select the camera (or a message if no camera is available).
   Widget _cameraTogglesRowWidget() {
     final List<Widget> toggles = <Widget>[];
-
     if (cameras.isEmpty) {
       return const Text('No camera found');
     } else {
@@ -177,6 +212,15 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
       }
     }
     return Row(children: toggles);
+  }
+
+  void swapCamera() {
+    if (cameras.length > 1) {
+      selectedCamera++;
+      if (selectedCamera == 2)  selectedCamera = 0;
+      else  selectedCamera = 1; 
+      onNewCameraSelected(cameras.elementAt(selectedCamera));
+    }
   }
 
   void onNewCameraSelected(CameraDescription cameraDescription) async {
@@ -216,7 +260,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     final Directory extDir = await getApplicationDocumentsDirectory();
     final String dirPath = '${extDir.path}/Pictures/flutter_test';
     await Directory(dirPath).create(recursive: true);
-    final String filePath = '$dirPath/${DateTime.now()}.jpg'; 
+    final String filePath = '$dirPath/${DateTime.now()}.jpg';
 
     if (controller.value.isTakingPicture) {
       // A capture is already pending, do nothing.
@@ -225,15 +269,15 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
     try {
       await controller.takePicture(filePath);
-    } on CameraException catch (e) {
+    } catch (e) {
       //print(e);
       return null;
     }
     return filePath;
   }
 
-  void onTakePictureButtonPressed() {
-    takePicture().then((String filePath) {
+  void onTakePictureButtonPressed() async {
+    await takePicture().then((String filePath) {
       if (mounted) {
         setState(() {
           imagePath = filePath;
