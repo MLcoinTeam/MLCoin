@@ -2,11 +2,11 @@
 *  card.dart
 *  
 *  mlcoin_app 2020-06-04
-*  mlcoin_app 2020-06-07
+*  mlcoin_app 2020-06-13
 *
 *  Created by [Allan Nava].
 *  Updated by [Allan Nava]
-*  Copyright © 2020 . All rights reserved.
+*  Copyright © [MLCoinTeam] 2020 . All rights reserved.
 */
 //
 import 'package:flutter/material.dart';
@@ -15,14 +15,20 @@ import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 ///
 /// da finire usando le variabili dinamiche!
 class OrganismCard extends StatelessWidget {
+  ///
   final String title;
+  final String subTitle;
   final Function onPressed;
+  final IconData icon;
+  final IconData trailing;
   //final AtomIcon icon;
   // andrebbero fatti altri initializer tipo atomtext
-
-  const OrganismCard({
+  OrganismCard({
     this.title,
     this.onPressed,
+    this.subTitle,
+    this.icon,
+    this.trailing,
   });
   //
   // Card with icon
@@ -35,27 +41,33 @@ class OrganismCard extends StatelessWidget {
   Widget build(BuildContext context) {
     ///
     return Card(
-      elevation: 5,
+      elevation: 2,
       color: Colors.white,
       child: InkWell(
         splashColor: AppColors.paletteGreyColor,
-        onTap: () {
-          print('Card tapped.');
-        },
+        onTap: this.onPressed,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            const ListTile(
+            ListTile(
+              leading: this.icon != null ? 
+                Icon(
+                  this.icon,
+                  color: AppColors.paletteYellowColor,
+                ) : null,
               title: AtomText(
-                'Versione PRO',
+                this.title,
                 color: Colors.black,
               ),
-              subtitle: Text(
-                'Sblocca tutte le caratteristiche PRO di questa app.',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
-              ),
+              subtitle: this.subTitle != null ? AtomText.subTitleCard(
+                this.subTitle,
+                //'Sblocca tutte le caratteristiche PRO di questa app.',
+              ) : null,
+              trailing: this.trailing != null ? 
+                Icon(
+                  this.trailing,
+                  color: AppColors.paletteGreyColor,
+                ) : null,
             ),
           ],
         ),

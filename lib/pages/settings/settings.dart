@@ -1,7 +1,7 @@
 /*
-*  scanner.dart
+*  settings.dart
 *  mlcoin_app 2020-04-03
-*  mlcoin_app 2020-06-03
+*  mlcoin_app 2020-06-13
 *
 *  Created by [Filippo Fresilli & Allan Nava].
 *  Copyright © 2020 [Filippo Fresilli & Allan Nava]. All rights reserved.
@@ -10,15 +10,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
-
+import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
 ///
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
-
 ///
 class _SettingsPageState extends State<SettingsPage> {
+  ///
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
@@ -42,7 +42,16 @@ class _SettingsPageState extends State<SettingsPage> {
                     horizontal: 10,
                     vertical: 14,
                   ),
-                  child: Card(
+                  child: OrganismCard(
+                    title: "Versione PRO",
+                    subTitle: "Sblocca tutte le caratteristiche PRO di questa app.",
+                    icon: Icons.star,
+                    onPressed: (){
+                      print("pressed");
+                    },
+                    trailing: Icons.arrow_forward_ios,
+                  )
+                  /*Card(
                     elevation: 2,
                     color: Colors.white,
                     child: InkWell(
@@ -81,7 +90,7 @@ class _SettingsPageState extends State<SettingsPage> {
                         ],
                       ),
                     ),
-                  ),
+                  ),*/
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
