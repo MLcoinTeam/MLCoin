@@ -82,6 +82,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           fit: StackFit.expand,
           children: <Widget>[
             _cameraPreviewWidget(),
+           // Positioned.fill(child: Image.asset("assets/images/focus_rectangle.png"),),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -248,7 +249,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     }
 
     if (mounted) {
-      setState(() {});
+      setState(() {}); 
     }
   }
 
