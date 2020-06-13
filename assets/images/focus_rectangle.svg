@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="279px" height="279px" viewBox="0 0 279 279" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Shape 2</title>
+    <g id="app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Scanner" transform="translate(-68.000000, -292.000000)" stroke="#FFFFFF" stroke-width="8">
+            <g id="Shape-2" transform="translate(72.000000, 296.000000)">
+                <path d="M216,0 C246.375661,0 271,24.6243388 271,55 M271,216 C271,246.375661 246.375661,271 216,271 M55,271 C24.6243388,271 0,246.375661 0,216 M0,55 C0,24.6243388 24.6243388,0 55,0" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>

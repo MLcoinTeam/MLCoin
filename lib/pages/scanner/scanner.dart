@@ -76,8 +76,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Container(
+    return Container(
       key: _scaffoldKey,
       child: Stack(
         fit: StackFit.expand,
@@ -127,7 +126,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           ),
         ],
       ),
-    ));
+    );
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
