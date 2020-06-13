@@ -76,52 +76,53 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Container(
-        key: _scaffoldKey,
-        child: Stack(
-          fit: StackFit.expand,
-          children: <Widget>[
-            _cameraPreviewWidget(),
-           // Positioned.fill(child: Image.asset("assets/images/focus_rectangle.png"),),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: FlatButton(
-                    child: Icon(
-                      Icons.flash_on,
-                      size: 30,
-                    ),
-                    onPressed: () {},
+        child: Container(
+      key: _scaffoldKey,
+      child: Stack(
+        fit: StackFit.expand,
+        children: <Widget>[
+          _cameraPreviewWidget(),
+          Positioned.fill(
+            child: Image.asset("assets/images/focus_rectangle.png"),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                child: FlatButton(
+                  child: Icon(
+                    Icons.flash_on,
+                    size: 30,
                   ),
-                  margin: EdgeInsets.only(top: 20),
+                  onPressed: () {},
                 ),
-                Container(
-                  child: FlatButton(
-                    child: Icon(
-                      Icons.photo_size_select_large,
-                      size: 30,
-                    ),
-                    onPressed: () {},
+                margin: EdgeInsets.only(top: 20),
+              ),
+              Container(
+                child: FlatButton(
+                  child: Icon(
+                    Icons.photo_size_select_large,
+                    size: 30,
                   ),
-                  margin: EdgeInsets.only(top: 20, left: 20),
+                  onPressed: () {},
                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: <Widget>[
-                _previewControlRowWidget(),
-                _captureControlRowWidget(),
-                _swapControlRowWidget(),
-              ],
-            ),
-          ],
-        ),
+                margin: EdgeInsets.only(top: 20, left: 20),
+              ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              _previewControlRowWidget(),
+              _captureControlRowWidget(),
+              _swapControlRowWidget(),
+            ],
+          ),
+        ],
       ),
-    );
+    ));
   }
 
   /// Display the preview from the camera (or a message if the preview is not available).
@@ -218,8 +219,10 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   void swapCamera() {
     if (cameras.length > 1) {
       selectedCamera++;
-      if (selectedCamera == 2)  selectedCamera = 0;
-      else  selectedCamera = 1; 
+      if (selectedCamera == 2)
+        selectedCamera = 0;
+      else
+        selectedCamera = 1;
       onNewCameraSelected(cameras.elementAt(selectedCamera));
     }
   }
@@ -249,7 +252,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     }
 
     if (mounted) {
-      setState(() {}); 
+      setState(() {});
     }
   }
 
