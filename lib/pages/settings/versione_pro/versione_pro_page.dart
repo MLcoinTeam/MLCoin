@@ -8,9 +8,9 @@
 *  Copyright © 2020 [Filippo Fresilli & Allan Nava]. All rights reserved.
 */
 ///
-library settings_page;
+library versione_pro_page;
 
 ///
-export 'settings.dart';
+export 'versione_pro.dart';
 
 ///
