@@ -137,12 +137,31 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
             ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              _previewControlRowWidget(),
-              _captureControlRowWidget(),
-              _swapControlRowWidget(),
+              Expanded(
+                child: Container(
+                  height: 115,
+                  margin: EdgeInsets.only(
+                    left: 14.0,
+                    right: 14.0,
+                    bottom: 14,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Color(0x80000000),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      _previewControlRowWidget(),
+                      _captureControlRowWidget(),
+                      _swapControlRowWidget(),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ],
@@ -170,7 +189,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to take pictures and record videos.
   Widget _captureControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30, right: 20),
+      //margin: EdgeInsets.only(bottom: 30, right: 20),
       // alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
@@ -186,7 +205,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to preview gallery images.
   Widget _previewControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
+      //margin: EdgeInsets.only(bottom: 30),
       //alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
@@ -202,7 +221,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to Swap Camera.
   Widget _swapControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
+      //margin: EdgeInsets.only(bottom: 30),
       child: IconButton(
         icon: const Icon(
           Icons.switch_camera,
