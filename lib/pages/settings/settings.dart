@@ -248,30 +248,78 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
-                    child: InkWell(
-                      splashColor: AppColors.paletteGreyColor,
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            title: Text(
-                              'Contattaci',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: AppColors.paletteGreyColor,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Inviaci un feedback',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                        ],
-                      ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.paletteGreyColor,
+                          ),
+                        ),
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Rate this app',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.paletteGreyColor,
+                          ),
+                        ),
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Privacy Policy',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.paletteGreyColor,
+                          ),
+                        ),
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Terms of use',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          trailing: Icon(
+                            Icons.arrow_forward_ios,
+                            color: AppColors.paletteGreyColor,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

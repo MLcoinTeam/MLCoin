@@ -97,9 +97,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(
-                      left: 14.0,
-                      right: 14.0,
-                      top: 14,
+                      left: 10.0,
+                      right: 10.0,
+                      top: 10,
                     ),
                     height: 50,
                     decoration: BoxDecoration(
@@ -143,9 +143,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                 child: Container(
                   height: 115,
                   margin: EdgeInsets.only(
-                    left: 14.0,
-                    right: 14.0,
-                    bottom: 14,
+                    left: 10.0,
+                    right: 10.0,
+                    bottom: 10,
                   ),
                   decoration: BoxDecoration(
                     color: Color(0x80000000),
