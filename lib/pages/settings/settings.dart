@@ -124,7 +124,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          const ListTile(
+                          ListTile(
                             title: AtomText(
                               'Blocca App',
                               color: Colors.black,
@@ -170,7 +170,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          const ListTile(
+                          ListTile(
                             title: Text('Tema scuro',
                                 style: TextStyle(
                                   color: Colors.black,
@@ -210,7 +210,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
-                          const ListTile(
+                          ListTile(
                             title: AtomText(
                               'Versione PRO',
                               color: Colors.black,
