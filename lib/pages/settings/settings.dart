@@ -11,11 +11,13 @@ import 'package:flutter/material.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
+
 ///
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
+
 ///
 class _SettingsPageState extends State<SettingsPage> {
   ///
@@ -38,20 +40,21 @@ class _SettingsPageState extends State<SettingsPage> {
             delegate: SliverChildListDelegate(
               [
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 14,
-                  ),
-                  child: OrganismCard(
-                    title: "Versione PRO",
-                    subTitle: "Sblocca tutte le caratteristiche PRO di questa app.",
-                    icon: Icons.star,
-                    onPressed: (){
-                      print("pressed");
-                    },
-                    trailing: Icons.arrow_forward_ios,
-                  )
-                  /*Card(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 14,
+                    ),
+                    child: OrganismCard(
+                      title: "Versione PRO",
+                      subTitle:
+                          "Sblocca tutte le caratteristiche PRO di questa app.",
+                      icon: Icons.star,
+                      onPressed: () {
+                        print("pressed");
+                      },
+                      trailing: Icons.arrow_forward_ios,
+                    )
+                    /*Card(
                     elevation: 2,
                     color: Colors.white,
                     child: InkWell(
@@ -91,7 +94,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                     ),
                   ),*/
-                ),
+                    ),
                 Container(
                   padding: EdgeInsets.symmetric(
                     horizontal: 14,
@@ -123,11 +126,11 @@ class _SettingsPageState extends State<SettingsPage> {
                         children: <Widget>[
                           const ListTile(
                             title: AtomText(
-                              'Versione PRO',
+                              'Blocca App',
                               color: Colors.black,
                             ),
                             subtitle: Text(
-                              'Sblocca tutte le caratteristiche PRO di questa app.',
+                              'Blocca l\'app con un codice di sicurezza.',
                               style: TextStyle(
                                 color: Colors.black,
                               ),
