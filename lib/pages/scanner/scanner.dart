@@ -212,7 +212,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           Icons.photo_size_select_actual,
           size: 40,
         ),
-        color: Colors.grey,
+        color: Colors.white,
         onPressed: controller != null ? onTakePictureButtonPressed : null,
       ),
     );
@@ -227,7 +227,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           Icons.switch_camera,
           size: 40,
         ),
-        color: Colors.grey,
+        color: Colors.white,
         onPressed: controller != null ? swapCamera : null,
       ),
     );
