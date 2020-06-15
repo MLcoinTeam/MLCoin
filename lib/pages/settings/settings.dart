@@ -14,6 +14,12 @@ import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
 
 ///
+const List<String> languagesList = [
+  'Italiano',
+  'Francese',
+  'Inglese',
+];
+
 class SettingsPage extends StatefulWidget {
   @override
   _SettingsPageState createState() => _SettingsPageState();
@@ -21,6 +27,9 @@ class SettingsPage extends StatefulWidget {
 
 ///
 class _SettingsPageState extends State<SettingsPage> {
+  //Update the default language to Italiano, the first item in the languagesList.
+  String selectedLanguage = 'Italiano';
+
   ///
   @override
   Widget build(BuildContext context) {
@@ -150,7 +159,12 @@ class _SettingsPageState extends State<SettingsPage> {
                             'Lingua',
                             style: kTitleCardTextStyle,
                           ),
-                          trailing: kGreyArrowRight,
+                          trailing: Text(
+                            selectedLanguage,
+                            style: TextStyle(
+                              color: AppColors.paletteGreyColor,
+                            ),
+                          ),
                         ),
                         ListTile(
                           onTap: () {
