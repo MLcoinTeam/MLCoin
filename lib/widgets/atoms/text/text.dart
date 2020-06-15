@@ -105,4 +105,8 @@ const kTitleSectionTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
-///
+const kTitleCardTextStyle = TextStyle(
+  color: Colors.black,
+  fontSize: 14,
+  fontWeight: FontWeight.bold,
+);

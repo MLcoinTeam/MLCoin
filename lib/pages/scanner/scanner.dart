@@ -122,10 +122,8 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                         ),
                         Container(
                           child: FlatButton(
-                            child: Icon(
-                              Icons.photo_size_select_large,
-                              size: 30,
-                            ),
+                            child: SvgPicture.asset(
+                                "assets/images/square_picture.svg"),
                             onPressed: () {},
                           ),
                           //margin: EdgeInsets.only(top: 20, left: 20),

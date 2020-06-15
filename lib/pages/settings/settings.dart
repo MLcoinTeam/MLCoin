@@ -8,6 +8,7 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mlcoin_app/pages/pages.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
@@ -24,7 +25,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: AppColors.primaryBackground,
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
@@ -32,7 +33,7 @@ class _SettingsPageState extends State<SettingsPage> {
             largeTitle: Text(
               'Impostazioni',
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.primary1,
               ),
             ),
           ),
@@ -47,6 +48,12 @@ class _SettingsPageState extends State<SettingsPage> {
                           "Sblocca tutte le caratteristiche PRO di questa app.",
                       icon: Icons.star,
                       onPressed: () {
+//                        Navigator.push(
+//                          context,
+//                          MaterialPageRoute(
+//                            builder: (context) => VersionProPage(),
+//                          ),
+//                        );
                         print("pressed");
                       },
                       trailing: Icons.arrow_forward_ios,
@@ -101,7 +108,6 @@ class _SettingsPageState extends State<SettingsPage> {
                     elevation: 2,
                     color: Colors.white,
                     child: InkWell(
-                      splashColor: AppColors.paletteGreyColor,
                       onTap: () {
                         print('Card tapped.');
                       },
@@ -109,9 +115,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           ListTile(
-                            title: AtomText(
+                            title: Text(
                               'Blocca App',
-                              color: Colors.black,
+                              style: kTitleCardTextStyle,
                             ),
                             subtitle: Text(
                               'Blocca l\'app con un codice di sicurezza.',
@@ -133,28 +139,29 @@ class _SettingsPageState extends State<SettingsPage> {
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
-                    child: InkWell(
-                      splashColor: AppColors.paletteGreyColor,
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          ListTile(
-                            title: Text('Lingua',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                )),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Lingua',
+                            style: kTitleCardTextStyle,
                           ),
-                          ListTile(
-                            title: Text('Tema scuro',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                )),
+                          trailing: kGreyArrowRight,
+                        ),
+                        ListTile(
+                          onTap: () {
+                            print('Card tapped.');
+                          },
+                          title: Text(
+                            'Tema scuro',
+                            style: kTitleCardTextStyle,
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -175,9 +182,9 @@ class _SettingsPageState extends State<SettingsPage> {
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
                           ListTile(
-                            title: AtomText(
+                            title: Text(
                               'Versione PRO',
-                              color: Colors.black,
+                              style: kTitleCardTextStyle,
                             ),
                             subtitle: Text(
                               'Sblocca tutte le caratteristiche PRO di questa app.',
@@ -208,16 +215,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           },
                           title: Text(
                             'Inviaci un feedback',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: kTitleCardTextStyle,
                           ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.paletteGreyColor,
-                          ),
+                          trailing: kGreyArrowRight,
                         ),
                         ListTile(
                           onTap: () {
@@ -225,16 +225,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           },
                           title: Text(
                             'Rate this app',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: kTitleCardTextStyle,
                           ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.paletteGreyColor,
-                          ),
+                          trailing: kGreyArrowRight,
                         ),
                         ListTile(
                           onTap: () {
@@ -242,16 +235,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           },
                           title: Text(
                             'Privacy Policy',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: kTitleCardTextStyle,
                           ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.paletteGreyColor,
-                          ),
+                          trailing: kGreyArrowRight,
                         ),
                         ListTile(
                           onTap: () {
@@ -259,16 +245,9 @@ class _SettingsPageState extends State<SettingsPage> {
                           },
                           title: Text(
                             'Terms of use',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: kTitleCardTextStyle,
                           ),
-                          trailing: Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.paletteGreyColor,
-                          ),
+                          trailing: kGreyArrowRight,
                         ),
                       ],
                     ),

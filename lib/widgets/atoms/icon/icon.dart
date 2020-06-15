@@ -25,3 +25,8 @@ class AtomIcon extends StatelessWidget {
     return new Icon(this.icon, color: this.color);
   }
 }
+
+const kGreyArrowRight = Icon(
+  Icons.arrow_forward_ios,
+  color: AppColors.paletteGreyColor,
+);
