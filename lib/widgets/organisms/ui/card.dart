@@ -42,40 +42,41 @@ class OrganismCard extends StatelessWidget {
   Widget build(BuildContext context) {
     ///
     return Card(
-        elevation: 2,
-        color: Colors.white,
-        child: InkWell(
-          splashColor: AppColors.paletteGreyColor,
-          onTap: this.onPressed,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ListTile(
-                leading: this.icon != null
-                    ? Icon(
-                        this.icon,
-                        color: AppColors.paletteYellowColor,
-                      )
-                    : null,
-                title: AtomText(
-                  this.title,
-                  color: Colors.black,
-                ),
-                subtitle: this.subTitle != null
-                    ? AtomText.subTitleCard(
-                        this.subTitle,
-                        //'Sblocca tutte le caratteristiche PRO di questa app.',
-                      )
-                    : null,
-                trailing: this.trailing != null
-                    ? Icon(
-                        this.trailing,
-                        color: AppColors.paletteGreyColor,
-                      )
-                    : null,
+      elevation: 2,
+      color: Colors.white,
+      child: InkWell(
+        splashColor: AppColors.paletteGreyColor,
+        onTap: this.onPressed,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ListTile(
+              leading: this.icon != null
+                  ? Icon(
+                      this.icon,
+                      color: AppColors.paletteYellowColor,
+                    )
+                  : null,
+              title: AtomText(
+                this.title,
+                color: Colors.black,
               ),
-            ],
-          ),
-        ));
+              subtitle: this.subTitle != null
+                  ? AtomText.subTitleCard(
+                      this.subTitle,
+                      //'Sblocca tutte le caratteristiche PRO di questa app.',
+                    )
+                  : null,
+              trailing: this.trailing != null
+                  ? Icon(
+                      this.trailing,
+                      color: AppColors.paletteGreyColor,
+                    )
+                  : null,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

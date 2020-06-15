@@ -23,3 +23,5 @@ class AppColors {
   static const Color paletteBlueColor = Color(0xff3772FF);
   static const Color paletteYellowColor = Color(0xffF9DC5C);
 }
+
+const kOpacity = Color(0x80000000);

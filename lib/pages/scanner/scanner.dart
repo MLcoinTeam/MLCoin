@@ -12,6 +12,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
+import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -103,7 +104,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                     ),
                     height: 50,
                     decoration: BoxDecoration(
-                      color: Color(0x80000000),
+                      color: kOpacity,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     child: Row(
@@ -148,7 +149,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                     bottom: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: Color(0x80000000),
+                    color: kOpacity,
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Row(

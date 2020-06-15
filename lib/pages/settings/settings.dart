@@ -40,10 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
             delegate: SliverChildListDelegate(
               [
                 Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 14,
-                    ),
+                    padding: kPaddingSettings,
                     child: OrganismCard(
                       title: "Versione PRO",
                       subTitle:
@@ -101,18 +98,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   child: Text(
                     'Impostazioni App',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: kTitleSectionTextStyle,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 14,
-                  ),
+                  padding: kPaddingSettings,
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
@@ -147,18 +137,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   child: Text(
                     'Personalizzazione',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: kTitleSectionTextStyle,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 14,
-                  ),
+                  padding: kPaddingSettings,
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
@@ -170,6 +153,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: <Widget>[
+                          ListTile(
+                            title: Text('Lingua',
+                                style: TextStyle(
+                                  color: Colors.black,
+                                )),
+                          ),
                           ListTile(
                             title: Text('Tema scuro',
                                 style: TextStyle(
@@ -187,18 +176,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   child: Text(
                     'Generale',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: kTitleSectionTextStyle,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 14,
-                  ),
+                  padding: kPaddingSettings,
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
@@ -233,18 +215,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   child: Text(
                     'Altro',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: kTitleSectionTextStyle,
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 14,
-                  ),
+                  padding: kPaddingSettings,
                   child: Card(
                     elevation: 2,
                     color: Colors.white,
