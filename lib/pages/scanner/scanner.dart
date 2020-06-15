@@ -12,6 +12,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
+import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -84,44 +85,82 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
           _cameraPreviewWidget(),
           Positioned.fill(
             child: SvgPicture.asset("assets/images/focus_rectangle.svg"),
-            left: 60,
-            right: 60,
-            top: 60,
-            bottom: 60,
+            left: 90,
+            right: 90,
+            //top: 60,
+            //bottom: 60,
+          ),
+          SafeArea(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      left: 10.0,
+                      right: 10.0,
+                      top: 10,
+                    ),
+                    height: 50,
+                    decoration: BoxDecoration(
+                      color: kOpacity,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          child: FlatButton(
+                            child: Icon(
+                              Icons.flash_on,
+                              size: 30,
+                            ),
+                            onPressed: () {},
+                          ),
+                          //margin: EdgeInsets.only(top: 20),
+                        ),
+                        Container(
+                          child: FlatButton(
+                            child: SvgPicture.asset(
+                                "assets/images/square_picture.svg"),
+                            onPressed: () {},
+                          ),
+                          //margin: EdgeInsets.only(top: 20, left: 20),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                child: FlatButton(
-                  child: Icon(
-                    Icons.flash_on,
-                    size: 30,
-                  ),
-                  onPressed: () {},
-                ),
-                margin: EdgeInsets.only(top: 20),
-              ),
-              Container(
-                child: FlatButton(
-                  child: Icon(
-                    Icons.photo_size_select_large,
-                    size: 30,
-                  ),
-                  onPressed: () {},
-                ),
-                margin: EdgeInsets.only(top: 20, left: 20),
-              ),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              _previewControlRowWidget(),
-              _captureControlRowWidget(),
-              _swapControlRowWidget(),
+              Expanded(
+                child: Container(
+                  height: 115,
+                  margin: EdgeInsets.only(
+                    left: 10.0,
+                    right: 10.0,
+                    bottom: 10,
+                  ),
+                  decoration: BoxDecoration(
+                    color: kOpacity,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      _previewControlRowWidget(),
+                      _captureControlRowWidget(),
+                      _swapControlRowWidget(),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ],
@@ -149,8 +188,8 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to take pictures and record videos.
   Widget _captureControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30, right: 20),
-      alignment: Alignment.bottomCenter,
+      //margin: EdgeInsets.only(bottom: 30, right: 20),
+      // alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
           Icons.camera,
@@ -165,14 +204,14 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to preview gallery images.
   Widget _previewControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
-      alignment: Alignment.bottomCenter,
+      //margin: EdgeInsets.only(bottom: 30),
+      //alignment: Alignment.bottomCenter,
       child: IconButton(
         icon: const Icon(
           Icons.photo_size_select_actual,
           size: 40,
         ),
-        color: Colors.grey,
+        color: Colors.white,
         onPressed: controller != null ? onTakePictureButtonPressed : null,
       ),
     );
@@ -181,13 +220,13 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to Swap Camera.
   Widget _swapControlRowWidget() {
     return Container(
-      margin: EdgeInsets.only(bottom: 30),
+      //margin: EdgeInsets.only(bottom: 30),
       child: IconButton(
         icon: const Icon(
           Icons.switch_camera,
           size: 40,
         ),
-        color: Colors.grey,
+        color: Colors.white,
         onPressed: controller != null ? swapCamera : null,
       ),
     );

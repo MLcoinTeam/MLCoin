@@ -24,7 +24,7 @@ class _CoinsPageState extends State<CoinsPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: Color(0xffFFFFFF),
+      backgroundColor: AppColors.primaryBackground,
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
@@ -38,45 +38,50 @@ class _CoinsPageState extends State<CoinsPage> {
             largeTitle: Text(
               'Monete',
               style: TextStyle(
-                color: Colors.white,
+                color: AppColors.primary1,
               ),
             ),
           ),
-          SliverList(
-            delegate: SliverChildListDelegate(
-              [
-                Container(
-                  child: Center(
-                    child: AtomText(
-                      "Inizia creando la tua prima raccolta di monete con il seguente bottone: ",
-                      color: AppColors.paletteGreyColor,
-                      textAlign: TextAlign.center,
+          SliverPadding(
+            padding: EdgeInsets.only(
+              top: 200,
+            ),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Container(
+                    child: Center(
+                      child: AtomText(
+                        "Inizia creando la tua prima raccolta di monete con il seguente bottone:",
+                        color: AppColors.paletteGreyColor,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 14.0),
-                  child: Container(
-                    height: 50,
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        width: 1,
-                        color: AppColors.paletteGreyColor,
+                  Container(
+                    padding: kPaddingSettings,
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          width: 1,
+                          color: AppColors.paletteGreyColor,
+                        ),
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Crea una raccolta di monete',
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
+                      child: Center(
+                        child: Text(
+                          'Crea una raccolta di monete',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 20,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],
