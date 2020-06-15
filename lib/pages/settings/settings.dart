@@ -92,14 +92,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),*/
                     ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 14,
-                  ),
-                  child: Text(
-                    'Impostazioni App',
-                    style: kTitleSectionTextStyle,
-                  ),
+                TitleSectionSettings(
+                  title: 'Impostazioni App',
                 ),
                 Container(
                   padding: kPaddingSettings,
@@ -131,14 +125,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 14,
-                  ),
-                  child: Text(
-                    'Personalizzazione',
-                    style: kTitleSectionTextStyle,
-                  ),
+                TitleSectionSettings(
+                  title: 'Personalizzazione',
                 ),
                 Container(
                   padding: kPaddingSettings,
@@ -170,14 +158,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 14,
-                  ),
-                  child: Text(
-                    'Generale',
-                    style: kTitleSectionTextStyle,
-                  ),
+                TitleSectionSettings(
+                  title: 'Generale',
                 ),
                 Container(
                   padding: kPaddingSettings,
@@ -209,14 +191,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 14,
-                  ),
-                  child: Text(
-                    'Altro',
-                    style: kTitleSectionTextStyle,
-                  ),
+                TitleSectionSettings(
+                  title: 'Altro',
                 ),
                 Container(
                   padding: kPaddingSettings,
@@ -302,6 +278,25 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class TitleSectionSettings extends StatelessWidget {
+  TitleSectionSettings({@required this.title});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 14,
+      ),
+      child: Text(
+        title,
+        style: kTitleSectionTextStyle,
       ),
     );
   }
