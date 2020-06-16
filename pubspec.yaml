@@ -1,7 +1,7 @@
 ################################################################################
 #
-#   Autore          :   Allan Nava
-#   Modificato      :   Allan Nava
+#   Autore          :   Filippo Fresilli & Allan Nava
+#   Modificato      :   Filippo Fresilli & Allan Nava
 #   Data            :   01/06/2020
 #   Aggiornamento   :   05/06/2020
 #
@@ -44,8 +44,7 @@ dependencies:
   camera: ^0.5.8+2
   flutter_svg:
   #tflite: ^1.0.6
-  #camera: ^0.5.8+2
-  video_player: ^0.10.0
+  #video_player: ^0.10.0
   # Add the dependency for the Firebase Core Flutter SDK
   firebase_core: ^0.4.0+9
   # Add the dependency for the FlutterFire plugin for Google Analytics
