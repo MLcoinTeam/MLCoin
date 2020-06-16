@@ -1,6 +1,6 @@
 # MLcoin_app
 
-![mlcoin-icon](./media/logo.jpg "MLCoin Icon" =120x)
+![mlcoin-icon](./media/logo.jpg "MLCoin Icon" =120x120)
 
 makes the coin recognition easy by using fotocamera and Machine Learning.
 
