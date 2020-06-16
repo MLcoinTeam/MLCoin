@@ -43,15 +43,14 @@ dependencies:
   tflite: ^1.0.6
   camera: ^0.5.8+2
   flutter_svg:
-  #tflite: ^1.0.6
   #video_player: ^0.10.0
   # Add the dependency for the Firebase Core Flutter SDK
-  firebase_core: ^0.4.0+9
+  firebase_core: ^0.4.5 #Non cambiare versione, causa crash dell'app. Stefano
   # Add the dependency for the FlutterFire plugin for Google Analytics
-  firebase_analytics: ^5.0.2
+  #firebase_analytics: ^5.0.15 Non reintrodurre, causa crash dell'app. Stefano
   # Add the dependencies for any other Firebase products you want to use in your app
   # For example, to use Firebase Authentication and Cloud Firestore
-  firebase_auth: ^0.14.0+5
+  #firebase_auth: ^0.16.1 Non reintrodurre, causa crash dell'app. Stefano
   #firebase_admob: ^0.9.3+2
   #
   #
