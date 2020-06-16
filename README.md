@@ -1,7 +1,7 @@
 # MLcoin_app
 
 <div align="center">
-  <img src=media/logo.jpg" width="120px">
+  <img src="media/logo.jpg" width="120px">
 </div>
 
 makes the coin recognition easy by using fotocamera and Machine Learning.
