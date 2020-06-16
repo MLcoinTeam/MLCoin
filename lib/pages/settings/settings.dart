@@ -27,7 +27,7 @@ class SettingsPage extends StatefulWidget {
 
 ///
 class _SettingsPageState extends State<SettingsPage> {
-  //Update the default language to Italiano, the first item in the languagesList.
+  //Update the default language to Italiano, the first item of the languagesList.
   String selectedLanguage = 'Italiano';
 
   ///
@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
           CupertinoSliverNavigationBar(
             backgroundColor: AppColors.paletteGreyColor,
             largeTitle: Text(
-              'Impostazioni',
+              ,
               style: TextStyle(
                 color: AppColors.primary1,
               ),
