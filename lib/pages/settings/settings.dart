@@ -29,12 +29,13 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   //Update the default language to Italiano, the first item of the languagesList.
   String selectedLanguage = 'Italiano';
+  bool darkTheme = false;
 
   ///
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: AppColors.primaryBackground,
+      backgroundColor: kBgSemiWhite,
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
@@ -50,64 +51,35 @@ class _SettingsPageState extends State<SettingsPage> {
             delegate: SliverChildListDelegate(
               [
                 Container(
-                    padding: kPaddingSettings,
-                    child: OrganismCard(
-                      title: "Versione PRO",
-                      subTitle:
-                          "Sblocca tutte le caratteristiche PRO di questa app.",
-                      icon: Icons.star,
-                      onPressed: () {
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(
-//                            builder: (context) => VersionProPage(),
-//                          ),
-//                        );
-                        print("pressed");
-                      },
-                      trailing: Icons.arrow_forward_ios,
-                    )
-                    /*Card(
+                  padding: kPaddingSettings,
+                  child: Card(
                     elevation: 2,
                     color: Colors.white,
                     child: InkWell(
-                      splashColor: AppColors.paletteGreyColor,
                       onTap: () {
                         print('Card tapped.');
                       },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(
-                              Icons.star,
-                              color: AppColors.paletteYellowColor,
-                            ),
-                            title: Text(
-                              'Versione PRO',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            subtitle: Text(
-                              'Sblocca tutte le caratteristiche PRO di questa app.',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: AppColors.paletteGreyColor,
-                            ),
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.star,
+                          color: AppColors.paletteYellowColor,
+                        ),
+                        title: Text(
+                          'Versione PRO',
+                          style: kTitleCardTextStyle,
+                        ),
+                        subtitle: Text(
+                          'Sblocca tutte le caratteristiche PRO di questa app.',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
                           ),
-                        ],
+                        ),
+                        trailing: kGreyArrowRight,
                       ),
                     ),
-                  ),*/
-                    ),
+                  ),
+                ),
                 TitleSectionSettings(
                   title: 'Impostazioni App',
                 ),
@@ -167,12 +139,17 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ),
                         ListTile(
-                          onTap: () {
-                            print('Card tapped.');
-                          },
                           title: Text(
                             'Tema scuro',
                             style: kTitleCardTextStyle,
+                          ),
+                          trailing: CupertinoSwitch(
+                            value: darkTheme,
+                            onChanged: (bool newValue) {
+                              setState(() {
+                                darkTheme = newValue;
+                              });
+                            },
                           ),
                         ),
                       ],

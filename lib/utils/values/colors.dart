@@ -25,3 +25,4 @@ class AppColors {
 }
 
 const kOpacity = Color(0x80000000);
+const kBgSemiWhite = Color(0xffFAFAFA);
