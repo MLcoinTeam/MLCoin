@@ -29,6 +29,7 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   //Update the default language to Italiano, the first item in the languagesList.
   String selectedLanguage = 'Italiano';
+  // to update darkTheme
   bool darkTheme = false;
 
   ///
@@ -57,6 +58,12 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
+//                        Navigator.push(
+//                          context,
+//                          MaterialPageRoute(
+//                            builder: (context) => VersionProPage(),
+//                          ),
+//                        );
                         print('Card tapped.');
                       },
                       child: ListTile(
