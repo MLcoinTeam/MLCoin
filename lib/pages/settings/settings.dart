@@ -60,7 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
-                        // Navigator.pushNamed(context, VersionProPage.id);
+                        //Navigator.pushNamed(context, VersionProPage.id);
                         print('Card tapped.');
                       },
                       child: ListTile(
