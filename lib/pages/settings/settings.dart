@@ -8,9 +8,10 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mlcoin_app/pages/pages.dart';
+
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
+import 'package:mlcoin_app/pages/settings/versione_pro/versione_pro.dart';
 import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
 
 ///
@@ -60,7 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
-                        //Navigator.pushNamed(context, VersionProPage.id);
+                        Navigator.pushNamed(context, VersionProPage.id);
                         print('Card tapped.');
                       },
                       child: ListTile(

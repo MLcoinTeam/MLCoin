@@ -13,10 +13,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 ///
-import 'package:mlcoin_app/pages/pages.dart';
+import 'package:mlcoin_app/pages/main_screen.dart';
+import 'package:mlcoin_app/pages/app_page.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
+
+///
+import 'package:mlcoin_app/pages/coins/coins.dart';
+import 'package:mlcoin_app/pages/scanner/scanner.dart';
+import 'package:mlcoin_app/pages/settings/settings.dart';
+
+import 'package:mlcoin_app/pages/settings/versione_pro/versione_pro.dart';
 
 ///
 import 'package:camera/camera.dart';
