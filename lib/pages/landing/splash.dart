@@ -11,23 +11,25 @@
 import 'package:flutter/material.dart';
 import 'package:mlcoin_app/utils/values/values.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 ///
 class SplashPage extends StatelessWidget {
-  const SplashPage({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: AppColors.paletteGreyColor,
       body: Container(
         constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            color: AppColors.primaryBackground, //Color.fromARGB(255, 0, 12, 24),
+        decoration: BoxDecoration(
+          color: AppColors.paletteGreyColor, //Color.fromARGB(255, 0, 12, 24),
         ),
         child: Center(
-          child: AtomImage.localBox('assets/images/logo.jpg')
+          child: SvgPicture.asset('assets/images/ML_coin_logo.svg'),
         ),
-      )
+      ),
     );
   }
 }
+
 ///

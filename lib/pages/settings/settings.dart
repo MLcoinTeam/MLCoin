@@ -69,7 +69,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           style: kTitleCardTextStyle,
                         ),
                         subtitle: Text(
-                          'Sblocca tutte le caratteristiche PRO di questa app.',
+                          'Sblocca tutte le funzionalità PRO di questa app.',
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12,
@@ -215,7 +215,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Rate this app',
+                            'Valuta l\'app',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,
@@ -225,7 +225,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Privacy Policy',
+                            'Informativa sulla Privacy',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,
@@ -235,7 +235,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Terms of use',
+                            'Termini di Utilizzo',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,
