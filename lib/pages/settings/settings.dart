@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
           CupertinoSliverNavigationBar(
             backgroundColor: AppColors.paletteGreyColor,
             largeTitle: Text(
-              ,
+              'Impostazioni',
               style: TextStyle(
                 color: AppColors.primary1,
               ),
