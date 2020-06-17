@@ -18,7 +18,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 ///
-///
+import 'dart:io' show Platform;
+
 ///
 class ScannerPage extends StatefulWidget {
   static const String id = 'scanner_page';
@@ -257,7 +258,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _swapControlRowWidget() {
     return Container(
       child: IconButton(
-        icon: const Icon(
+        icon: Icon(
           Icons.switch_camera,
         ),
         iconSize: 40,
