@@ -37,7 +37,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
   int selectedCamera;
 
-  bool isSquared = true;
+  bool isSquared = false;
   bool isFlashActive = false;
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
@@ -102,14 +102,16 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                 Expanded(
                   child: Container(
                     margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                      top: 10,
+                      left: isSquared ? 0 : 10.0,
+                      right: isSquared ? 0 : 10.0,
+                      top: isSquared ? 0 : 10.0,
                     ),
-                    height: 50,
+                    height: isSquared ? 60 : 50,
                     decoration: BoxDecoration(
                       color: kOpacity,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: isSquared
+                          ? BorderRadius.circular(0)
+                          : BorderRadius.circular(8),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -139,9 +141,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                           child: FlatButton(
                             child: isSquared
                                 ? SvgPicture.asset(
-                                    "assets/images/square_picture.svg")
+                                    "assets/images/portrait_picture.svg")
                                 : SvgPicture.asset(
-                                    "assets/images/portrait_picture.svg"),
+                                    "assets/images/square_picture.svg"),
                             onPressed: () {
                               setState(
                                 () {
@@ -164,15 +166,17 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
             children: <Widget>[
               Expanded(
                 child: Container(
-                  height: 115,
+                  height: isSquared ? 125 : 115,
                   margin: EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    bottom: 10,
+                    left: isSquared ? 0 : 10.0,
+                    right: isSquared ? 0 : 10.0,
+                    bottom: isSquared ? 0 : 10.0,
                   ),
                   decoration: BoxDecoration(
                     color: kOpacity,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: isSquared
+                        ? BorderRadius.circular(0)
+                        : BorderRadius.circular(8),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
