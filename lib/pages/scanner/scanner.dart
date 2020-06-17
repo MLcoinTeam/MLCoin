@@ -21,6 +21,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///
 ///
 class ScannerPage extends StatefulWidget {
+  static const String id = 'scanner_page';
   final MLRepository mlRepository;
   ScannerPage({Key key, this.mlRepository}) : super(key: key);
 

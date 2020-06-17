@@ -15,6 +15,7 @@ import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 
 ///
 class CoinsPage extends StatefulWidget {
+  static const String id = 'coins_page';
   @override
   _CoinsPageState createState() => _CoinsPageState();
 }

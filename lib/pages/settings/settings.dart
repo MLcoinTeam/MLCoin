@@ -21,6 +21,8 @@ const List<String> languagesList = [
 ];
 
 class SettingsPage extends StatefulWidget {
+  static const String id = 'settings_page';
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -58,12 +60,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(
-//                            builder: (context) => VersionProPage(),
-//                          ),
-//                        );
+                        // Navigator.pushNamed(context, VersionProPage.id);
                         print('Card tapped.');
                       },
                       child: ListTile(

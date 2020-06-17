@@ -13,6 +13,8 @@ import 'package:mlcoin_app/utils/values/colors.dart';
 ///
 ///
 class VersionProPage extends StatefulWidget {
+  static const String id = 'version_pro_page';
+
   @override
   _VersionProPageState createState() => _VersionProPageState();
 }

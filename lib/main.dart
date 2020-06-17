@@ -11,17 +11,20 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 ///
 import 'package:mlcoin_app/pages/pages.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
+
 ///
 import 'package:camera/camera.dart';
 import 'blocs/blocs.dart';
+
 //
 List<CameraDescription> cameras;
-Future<void> main() async{
+Future<void> main() async {
   //
   try {
     WidgetsFlutterBinding.ensureInitialized();
@@ -31,29 +34,34 @@ Future<void> main() async{
     //logError(e.code, e.description);
   }
   final MLRepository mlRepository = MLRepository(
-    apiClient: ApiClient( Dio( ) ),
+    apiClient: ApiClient(Dio()),
     cameras: cameras,
   );
+
   ///
   BlocSupervisor.delegate = SimpleBlocDelegate();
+
   ///
-  runApp(
-    BlocProvider(
-      create: (context) {
-        return ThemeBloc();
-      },
-      child: App( mlRepository: mlRepository, ),
-    )
-  );
+  runApp(BlocProvider(
+    create: (context) {
+      return ThemeBloc();
+    },
+    child: App(
+      mlRepository: mlRepository,
+    ),
+  ));
 }
+
 ///
-class App extends StatelessWidget{
+class App extends StatelessWidget {
   ///
   final MLRepository mlRepository;
+
   ///
-  App({ Key key, @required this.mlRepository })
+  App({Key key, @required this.mlRepository})
       : assert(mlRepository != null),
         super(key: key);
+
   ///
   ///
   @override
@@ -65,24 +73,29 @@ class App extends StatelessWidget{
           theme: themeState.theme,
           initialRoute: AppRoutes.home,
           routes: {
-            AppRoutes.home : (context) {
+            MainPage.id: (context) => MainPage(),
+            ScannerPage.id: (context) => ScannerPage(),
+            CoinsPage.id: (context) => CoinsPage(),
+            SettingsPage.id: (context) => SettingsPage(),
+            VersionProPage.id: (context) => VersionProPage(),
+            AppRoutes.home: (context) {
               return MultiBlocProvider(
                 providers: [
                   BlocProvider<BottomBarBloc>(
                     create: (context) => BottomBarBloc(),
                   ),
                 ],
-                child: AppPage( mlRepository: mlRepository, )
+                child: AppPage(
+                  mlRepository: mlRepository,
+                ),
               );
               //return MainPage();
             },
-            AppRoutes.login : (context) {
-              return MainPage();
-            }
-          }
+          },
         );
-      }
+      },
     );
   }
 }
+
 ///
