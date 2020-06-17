@@ -188,13 +188,11 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to take pictures and record videos.
   Widget _captureControlRowWidget() {
     return Container(
-      //margin: EdgeInsets.only(bottom: 30, right: 20),
-      // alignment: Alignment.bottomCenter,
       child: IconButton(
-        icon: const Icon(
-          Icons.camera,
-          size: 60,
+        icon: SvgPicture.asset(
+          "assets/images/record_button.svg",
         ),
+        iconSize: 66,
         color: Colors.red,
         onPressed: controller != null ? onTakePictureButtonPressed : null,
       ),
@@ -204,13 +202,11 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to preview gallery images.
   Widget _previewControlRowWidget() {
     return Container(
-      //margin: EdgeInsets.only(bottom: 30),
-      //alignment: Alignment.bottomCenter,
       child: IconButton(
-        icon: const Icon(
+        icon: Icon(
           Icons.photo_size_select_actual,
-          size: 40,
         ),
+        iconSize: 40,
         color: Colors.white,
         onPressed: controller != null ? onTakePictureButtonPressed : null,
       ),
@@ -220,12 +216,11 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   /// Display the control bar with buttons to Swap Camera.
   Widget _swapControlRowWidget() {
     return Container(
-      //margin: EdgeInsets.only(bottom: 30),
       child: IconButton(
         icon: const Icon(
           Icons.switch_camera,
-          size: 40,
         ),
+        iconSize: 40,
         color: Colors.white,
         onPressed: controller != null ? swapCamera : null,
       ),

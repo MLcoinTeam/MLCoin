@@ -29,12 +29,13 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   //Update the default language to Italiano, the first item in the languagesList.
   String selectedLanguage = 'Italiano';
+  bool darkTheme = false;
 
   ///
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: AppColors.primaryBackground,
+      backgroundColor: kBgSemiWhite,
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
@@ -50,23 +51,34 @@ class _SettingsPageState extends State<SettingsPage> {
             delegate: SliverChildListDelegate(
               [
                 Container(
-                    padding: kPaddingSettings,
-                    child: OrganismCard(
-                      title: "Versione PRO",
-                      subTitle:
-                          "Sblocca tutte le caratteristiche PRO di questa app.",
-                      icon: Icons.star,
-                      onPressed: () {
-//                        Navigator.push(
-//                          context,
-//                          MaterialPageRoute(
-//                            builder: (context) => VersionProPage(),
-//                          ),
-//                        );
-                        print("pressed");
+                  padding: kPaddingSettings,
+                  child: Card(
+                    elevation: 2,
+                    color: Colors.white,
+                    child: InkWell(
+                      onTap: () {
+                        print('Card tapped.');
                       },
-                      trailing: Icons.arrow_forward_ios,
-                    )
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.star,
+                          color: AppColors.paletteYellowColor,
+                        ),
+                        title: Text(
+                          'Versione PRO',
+                          style: kTitleCardTextStyle,
+                        ),
+                        subtitle: Text(
+                          'Sblocca tutte le funzionalità PRO di questa app.',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12,
+                          ),
+                        ),
+                        trailing: kGreyArrowRight,
+                      ),
+                    ),
+                  ),
                 ),
                 TitleSectionSettings(
                   title: 'Impostazioni App',
@@ -127,12 +139,17 @@ class _SettingsPageState extends State<SettingsPage> {
                           ),
                         ),
                         ListTile(
-                          onTap: () {
-                            print('Card tapped.');
-                          },
                           title: Text(
                             'Tema scuro',
                             style: kTitleCardTextStyle,
+                          ),
+                          trailing: CupertinoSwitch(
+                            value: darkTheme,
+                            onChanged: (bool newValue) {
+                              setState(() {
+                                darkTheme = newValue;
+                              });
+                            },
                           ),
                         ),
                       ],
@@ -198,7 +215,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Rate this app',
+                            'Valuta l\'app',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,
@@ -208,7 +225,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Privacy Policy',
+                            'Informativa sulla Privacy',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,
@@ -218,7 +235,7 @@ class _SettingsPageState extends State<SettingsPage> {
                             print('Card tapped.');
                           },
                           title: Text(
-                            'Terms of use',
+                            'Termini di Utilizzo',
                             style: kTitleCardTextStyle,
                           ),
                           trailing: kGreyArrowRight,

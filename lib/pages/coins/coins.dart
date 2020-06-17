@@ -24,7 +24,7 @@ class _CoinsPageState extends State<CoinsPage> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      backgroundColor: AppColors.primaryBackground,
+      backgroundColor: kBgSemiWhite,
       child: CustomScrollView(
         slivers: <Widget>[
           CupertinoSliverNavigationBar(
