@@ -27,7 +27,7 @@ class SettingsPage extends StatefulWidget {
 
 ///
 class _SettingsPageState extends State<SettingsPage> {
-  //Update the default language to Italiano, the first item of the languagesList.
+  //Update the default language to Italiano, the first item in the languagesList.
   String selectedLanguage = 'Italiano';
 
   ///
@@ -40,7 +40,7 @@ class _SettingsPageState extends State<SettingsPage> {
           CupertinoSliverNavigationBar(
             backgroundColor: AppColors.paletteGreyColor,
             largeTitle: Text(
-              ,
+              'Impostazioni',
               style: TextStyle(
                 color: AppColors.primary1,
               ),
@@ -67,47 +67,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       },
                       trailing: Icons.arrow_forward_ios,
                     )
-                    /*Card(
-                    elevation: 2,
-                    color: Colors.white,
-                    child: InkWell(
-                      splashColor: AppColors.paletteGreyColor,
-                      onTap: () {
-                        print('Card tapped.');
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          const ListTile(
-                            leading: Icon(
-                              Icons.star,
-                              color: AppColors.paletteYellowColor,
-                            ),
-                            title: Text(
-                              'Versione PRO',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            subtitle: Text(
-                              'Sblocca tutte le caratteristiche PRO di questa app.',
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              color: AppColors.paletteGreyColor,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),*/
-                    ),
+                ),
                 TitleSectionSettings(
                   title: 'Impostazioni App',
                 ),
