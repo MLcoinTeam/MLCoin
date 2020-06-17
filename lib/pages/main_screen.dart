@@ -10,19 +10,20 @@
 */
 //
 import 'package:flutter/material.dart';
+
 //
 class MainPage extends StatefulWidget {
-  MainPage({Key key}) : super(key: key);
-
+  static const String id = 'main_page';
   @override
   _MainScreenState createState() => _MainScreenState();
 }
+
 ///
 class _MainScreenState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       //child: child,
-    );
+        //child: child,
+        );
   }
 }

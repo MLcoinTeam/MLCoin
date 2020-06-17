@@ -21,6 +21,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 ///
 ///
 class ScannerPage extends StatefulWidget {
+  static const String id = 'scanner_page';
   final MLRepository mlRepository;
   ScannerPage({Key key, this.mlRepository}) : super(key: key);
 
@@ -35,6 +36,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Future<void> _initializeControllerFuture;
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
   int selectedCamera;
+
+  bool isSquared = false;
+  bool isFlashActive = false;
 
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
@@ -97,34 +101,62 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
               children: <Widget>[
                 Expanded(
                   child: Container(
-                    margin: EdgeInsets.only(
-                      left: 10.0,
-                      right: 10.0,
-                      top: 10,
-                    ),
-                    height: 50,
+                    margin: isSquared
+                        ? EdgeInsets.only(
+                            left: 0,
+                            right: 0,
+                            top: 0,
+                          )
+                        : EdgeInsets.only(
+                            left: 10,
+                            right: 10,
+                            top: 10,
+                          ),
+                    height: isSquared ? 60 : 50,
                     decoration: BoxDecoration(
                       color: kOpacity,
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: isSquared
+                          ? BorderRadius.circular(0)
+                          : BorderRadius.circular(8),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
                           child: FlatButton(
-                            child: Icon(
-                              Icons.flash_on,
-                              size: 30,
-                            ),
-                            onPressed: () {},
+                            child: isFlashActive
+                                ? Icon(
+                                    Icons.flash_off,
+                                    size: 30,
+                                  )
+                                : Icon(
+                                    Icons.flash_on,
+                                    size: 30,
+                                  ),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  isFlashActive = !isFlashActive;
+                                },
+                              );
+                            },
                           ),
                           //margin: EdgeInsets.only(top: 20),
                         ),
                         Container(
                           child: FlatButton(
-                            child: SvgPicture.asset(
-                                "assets/images/square_picture.svg"),
-                            onPressed: () {},
+                            child: isSquared
+                                ? SvgPicture.asset(
+                                    "assets/images/portrait_picture.svg")
+                                : SvgPicture.asset(
+                                    "assets/images/square_picture.svg"),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  isSquared = !isSquared;
+                                },
+                              );
+                            },
                           ),
                           //margin: EdgeInsets.only(top: 20, left: 20),
                         ),
@@ -140,15 +172,23 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
             children: <Widget>[
               Expanded(
                 child: Container(
-                  height: 115,
-                  margin: EdgeInsets.only(
-                    left: 10.0,
-                    right: 10.0,
-                    bottom: 10,
-                  ),
+                  height: isSquared ? 125 : 115,
+                  margin: isSquared
+                      ? EdgeInsets.only(
+                          left: 0,
+                          right: 0,
+                          bottom: 0,
+                        )
+                      : EdgeInsets.only(
+                          left: 10.0,
+                          right: 10.0,
+                          bottom: 10.0,
+                        ),
                   decoration: BoxDecoration(
                     color: kOpacity,
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: isSquared
+                        ? BorderRadius.circular(0)
+                        : BorderRadius.circular(8),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,

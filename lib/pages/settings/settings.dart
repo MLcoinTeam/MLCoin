@@ -8,9 +8,10 @@
 */
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mlcoin_app/pages/pages.dart';
+
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
+import 'package:mlcoin_app/pages/settings/versione_pro/versione_pro.dart';
 import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
 
 ///
@@ -21,14 +22,17 @@ const List<String> languagesList = [
 ];
 
 class SettingsPage extends StatefulWidget {
+  static const String id = 'settings_page';
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
 ///
 class _SettingsPageState extends State<SettingsPage> {
-  //Update the default language to Italiano, the first item of the languagesList.
+  //Update the default language to Italiano, the first item in the languagesList.
   String selectedLanguage = 'Italiano';
+  // to update darkTheme
   bool darkTheme = false;
 
   ///
@@ -57,6 +61,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
+                        Navigator.pushNamed(context, VersionProPage.id);
                         print('Card tapped.');
                       },
                       child: ListTile(
