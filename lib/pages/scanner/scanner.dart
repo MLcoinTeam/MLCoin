@@ -37,6 +37,9 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   List<CameraDescription> get cameras => widget.mlRepository.cameras;
   int selectedCamera;
 
+  bool isSquared = true;
+  bool isFlashActive = false;
+
   String timestamp() => DateTime.now().millisecondsSinceEpoch.toString();
 
   @override
@@ -113,19 +116,39 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                       children: [
                         Container(
                           child: FlatButton(
-                            child: Icon(
-                              Icons.flash_on,
-                              size: 30,
-                            ),
-                            onPressed: () {},
+                            child: isFlashActive
+                                ? Icon(
+                                    Icons.flash_off,
+                                    size: 30,
+                                  )
+                                : Icon(
+                                    Icons.flash_on,
+                                    size: 30,
+                                  ),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  isFlashActive = !isFlashActive;
+                                },
+                              );
+                            },
                           ),
                           //margin: EdgeInsets.only(top: 20),
                         ),
                         Container(
                           child: FlatButton(
-                            child: SvgPicture.asset(
-                                "assets/images/square_picture.svg"),
-                            onPressed: () {},
+                            child: isSquared
+                                ? SvgPicture.asset(
+                                    "assets/images/square_picture.svg")
+                                : SvgPicture.asset(
+                                    "assets/images/portrait_picture.svg"),
+                            onPressed: () {
+                              setState(
+                                () {
+                                  isSquared = !isSquared;
+                                },
+                              );
+                            },
                           ),
                           //margin: EdgeInsets.only(top: 20, left: 20),
                         ),
