@@ -10,6 +10,7 @@ import 'dart:io';
 
 ///
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
@@ -18,9 +19,11 @@ import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 ///
-///
+import 'dart:io' show Platform;
+
 ///
 class ScannerPage extends StatefulWidget {
+  // id for routes
   static const String id = 'scanner_page';
   final MLRepository mlRepository;
   ScannerPage({Key key, this.mlRepository}) : super(key: key);
@@ -123,24 +126,44 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: FlatButton(
-                            child: isFlashActive
-                                ? Icon(
-                                    Icons.flash_off,
-                                    size: 30,
-                                  )
-                                : Icon(
-                                    Icons.flash_on,
-                                    size: 30,
-                                  ),
-                            onPressed: () {
-                              setState(
-                                () {
-                                  isFlashActive = !isFlashActive;
-                                },
-                              );
-                            },
-                          ),
+                          child: Platform
+                                  .isIOS // here if the device is iOS perform the first icon, else the second.
+                              ? FlatButton(
+                                  child: isFlashActive
+                                      ? Icon(
+                                          Icons.flash_off,
+                                          size: 30,
+                                        )
+                                      : Icon(
+                                          Icons.flash_on,
+                                          size: 30,
+                                        ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        isFlashActive = !isFlashActive;
+                                      },
+                                    );
+                                  },
+                                )
+                              : FlatButton(
+                                  child: isFlashActive
+                                      ? Icon(
+                                          Icons.flash_off,
+                                          size: 30,
+                                        )
+                                      : Icon(
+                                          Icons.flash_on,
+                                          size: 30,
+                                        ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        isFlashActive = !isFlashActive;
+                                      },
+                                    );
+                                  },
+                                ),
                           //margin: EdgeInsets.only(top: 20),
                         ),
                         Container(
@@ -230,7 +253,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return Container(
       child: IconButton(
         icon: SvgPicture.asset(
-          "assets/images/record_button.svg",
+          "assets/images/picture_button.svg",
         ),
         iconSize: 66,
         color: Colors.red,
@@ -257,9 +280,16 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _swapControlRowWidget() {
     return Container(
       child: IconButton(
-        icon: const Icon(
-          Icons.switch_camera,
-        ),
+        icon: Platform
+                .isIOS // here if the device is iOS perform the first icon, else the second.
+            ? Icon(
+                IconData(62622,
+                    fontFamily: CupertinoIcons.iconFont,
+                    fontPackage: CupertinoIcons.iconFontPackage),
+              )
+            : Icon(
+                Icons.switch_camera,
+              ),
         iconSize: 40,
         color: Colors.white,
         onPressed: controller != null ? swapCamera : null,

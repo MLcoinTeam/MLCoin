@@ -15,6 +15,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 ///
 class SplashPage extends StatelessWidget {
+  // id for routes
+  static const String id = 'splash_page';
   @override
   Widget build(BuildContext context) {
     return Scaffold(

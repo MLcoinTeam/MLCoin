@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Record Button Copy 2</title>
+    <g id="app" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Record-Button-Copy-2" fill="#FFFFFF">
+            <path d="M33,2.20268248e-13 C51.2253967,2.20268248e-13 66,14.7746033 66,33 C66,51.0431428 51.5194113,65.7041629 33.5457153,65.9955789 L33,66 C14.7746033,66 0,51.2253967 0,33 C0,14.7746033 14.7746033,2.20268248e-13 33,2.20268248e-13 Z M33,6 C18.0883118,6 6,18.0883118 6,33 C6,47.7625714 17.8477544,59.7579514 32.5535056,59.9963828 L33,60 C47.9116882,60 60,47.9116882 60,33 C60,18.0883118 47.9116882,6 33,6 Z" id="Camera-Button"></path>
+            <circle id="Shape" cx="33" cy="33" r="25"></circle>
+        </g>
+    </g>
+</svg>

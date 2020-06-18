@@ -22,6 +22,7 @@ const List<String> languagesList = [
 ];
 
 class SettingsPage extends StatefulWidget {
+  // id for routes
   static const String id = 'settings_page';
 
   @override
@@ -61,7 +62,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     color: Colors.white,
                     child: InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, VersionProPage.id);
+                        // TODO: create a navigator for VersionProPage
+                        //Navigator.pushNamed(context, VersionProPage.id);
                         print('Card tapped.');
                       },
                       child: ListTile(
@@ -258,6 +260,7 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
+// this is the object TitleSectionSetting, we can move it to Organism
 class TitleSectionSettings extends StatelessWidget {
   TitleSectionSettings({@required this.title});
 

@@ -11,10 +11,12 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mlcoin_app/pages/landing/landing.dart';
+import 'package:mlcoin_app/pages/landing/splash.dart';
 
 ///
 import 'package:mlcoin_app/pages/main_screen.dart';
-import 'package:mlcoin_app/pages/app_page.dart';
+import 'package:mlcoin_app/pages/app_pagev2.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
@@ -82,9 +84,15 @@ class App extends StatelessWidget {
           initialRoute: AppRoutes.home,
           routes: {
             MainPage.id: (context) => MainPage(),
+            LandingPage.id: (context) => LandingPage(),
+            SplashPage.id: (context) => SplashPage(),
+
+            ///
             ScannerPage.id: (context) => ScannerPage(),
             CoinsPage.id: (context) => CoinsPage(),
             SettingsPage.id: (context) => SettingsPage(),
+
+            ///
             VersionProPage.id: (context) => VersionProPage(),
             AppRoutes.home: (context) {
               return MultiBlocProvider(
