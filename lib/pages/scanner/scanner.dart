@@ -126,7 +126,8 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: Platform.isIOS
+                          child: Platform
+                                  .isIOS // here if the device is iOS perform the first icon, else the second.
                               ? FlatButton(
                                   child: isFlashActive
                                       ? Icon(
@@ -279,7 +280,8 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _swapControlRowWidget() {
     return Container(
       child: IconButton(
-        icon: Platform.isIOS
+        icon: Platform
+                .isIOS // here if the device is iOS perform the first icon, else the second.
             ? Icon(
                 IconData(62622,
                     fontFamily: CupertinoIcons.iconFont,
