@@ -86,9 +86,13 @@ class App extends StatelessWidget {
             MainPage.id: (context) => MainPage(),
             LandingPage.id: (context) => LandingPage(),
             SplashPage.id: (context) => SplashPage(),
+
+            ///
             ScannerPage.id: (context) => ScannerPage(),
             CoinsPage.id: (context) => CoinsPage(),
             SettingsPage.id: (context) => SettingsPage(),
+
+            ///
             VersionProPage.id: (context) => VersionProPage(),
             AppRoutes.home: (context) {
               return MultiBlocProvider(
