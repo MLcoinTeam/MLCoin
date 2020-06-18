@@ -2,7 +2,7 @@
 *  app_pagev2.dart
 *  
 *  mlcoin_app 2020-06-01
-*  mlcoin_app 2020-06-03
+*  mlcoin_app 2020-06-18
 *
 *  Created by [Filippo Fresilli & Allan Nava].
 *  Updated by [Filippo Fresilli & Allan Nava]
@@ -10,8 +10,6 @@
 */
 //
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mlcoin_app/blocs/blocs.dart';
 ///
 import 'package:mlcoin_app/pages/landing/splash.dart';
 import 'package:mlcoin_app/pages/scanner/scanner.dart';
@@ -19,7 +17,7 @@ import 'package:mlcoin_app/pages/coins/coins.dart';
 import 'package:mlcoin_app/pages/settings/settings.dart';
 ///
 import 'package:mlcoin_app/repositories/repositories.dart';
-import 'package:mlcoin_app/widgets/organisms/ui/ui_organisms.dart';
+import 'package:mlcoin_app/widgets/organisms/ui/bottom_barv2.dart';
 //
 //
 class AppPage extends StatefulWidget {
@@ -63,8 +61,8 @@ class _AppPageState extends State<AppPage> {
       if (splashViewed) {
         return Scaffold(
           bottomNavigationBar: BottomNavigationBarStateless(
-            activeTab: this.currentIndex,
-            onTabSelected: this._onItemTapped
+            currentIndex: currentIndex,
+            onTapNavigation: _onItemTapped
           ),
           body: IndexedStack(
             index: currentIndex,
