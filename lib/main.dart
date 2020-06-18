@@ -16,7 +16,7 @@ import 'package:mlcoin_app/pages/landing/splash.dart';
 
 ///
 import 'package:mlcoin_app/pages/main_screen.dart';
-import 'package:mlcoin_app/pages/app_page.dart';
+import 'package:mlcoin_app/pages/app_pagev2.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/simple_bloc_delegate.dart';
 import 'package:mlcoin_app/utils/routes.dart';
