@@ -11,6 +11,8 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mlcoin_app/pages/landing/landing.dart';
+import 'package:mlcoin_app/pages/landing/splash.dart';
 
 ///
 import 'package:mlcoin_app/pages/main_screen.dart';
@@ -82,6 +84,8 @@ class App extends StatelessWidget {
           initialRoute: AppRoutes.home,
           routes: {
             MainPage.id: (context) => MainPage(),
+            LandingPage.id: (context) => LandingPage(),
+            SplashPage.id: (context) => SplashPage(),
             ScannerPage.id: (context) => ScannerPage(),
             CoinsPage.id: (context) => CoinsPage(),
             SettingsPage.id: (context) => SettingsPage(),

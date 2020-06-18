@@ -8,14 +8,16 @@
 */
 ///
 import 'package:flutter/material.dart';
+
 ///
 class LandingPage extends StatelessWidget {
-  const LandingPage({Key key}) : super(key: key);
+  // id for routes
+  static const String id = 'landing_page';
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      //child: child,
-    );
+        //child: child,
+        );
   }
 }
