@@ -16,6 +16,7 @@ import 'dart:io' show Platform;
 
 ///
 class CoinsPage extends StatefulWidget {
+  // id for routes
   static const String id = 'coins_page';
   @override
   _CoinsPageState createState() => _CoinsPageState();
@@ -118,6 +119,8 @@ class _CoinsPageState extends State<CoinsPage> {
   }
 }
 
+// AlertDialog useful to create a new album
+// TODO: Cupertino AlertDialog
 enum DialogAction { yes, abort }
 
 class Dialogs {

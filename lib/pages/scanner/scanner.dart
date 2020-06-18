@@ -22,6 +22,7 @@ import 'dart:io' show Platform;
 
 ///
 class ScannerPage extends StatefulWidget {
+  // id for routes
   static const String id = 'scanner_page';
   final MLRepository mlRepository;
   ScannerPage({Key key, this.mlRepository}) : super(key: key);
