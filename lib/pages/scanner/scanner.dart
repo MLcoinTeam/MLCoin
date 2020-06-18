@@ -10,6 +10,7 @@ import 'dart:io';
 
 ///
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
@@ -125,24 +126,43 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
-                          child: FlatButton(
-                            child: isFlashActive
-                                ? Icon(
-                                    Icons.flash_off,
-                                    size: 30,
-                                  )
-                                : Icon(
-                                    Icons.flash_on,
-                                    size: 30,
-                                  ),
-                            onPressed: () {
-                              setState(
-                                () {
-                                  isFlashActive = !isFlashActive;
-                                },
-                              );
-                            },
-                          ),
+                          child: Platform.isIOS
+                              ? FlatButton(
+                                  child: isFlashActive
+                                      ? Icon(
+                                          Icons.flash_off,
+                                          size: 30,
+                                        )
+                                      : Icon(
+                                          Icons.flash_on,
+                                          size: 30,
+                                        ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        isFlashActive = !isFlashActive;
+                                      },
+                                    );
+                                  },
+                                )
+                              : FlatButton(
+                                  child: isFlashActive
+                                      ? Icon(
+                                          Icons.flash_off,
+                                          size: 30,
+                                        )
+                                      : Icon(
+                                          Icons.flash_on,
+                                          size: 30,
+                                        ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        isFlashActive = !isFlashActive;
+                                      },
+                                    );
+                                  },
+                                ),
                           //margin: EdgeInsets.only(top: 20),
                         ),
                         Container(
@@ -259,9 +279,15 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   Widget _swapControlRowWidget() {
     return Container(
       child: IconButton(
-        icon: Icon(
-          Icons.switch_camera,
-        ),
+        icon: Platform.isIOS
+            ? Icon(
+                IconData(62622,
+                    fontFamily: CupertinoIcons.iconFont,
+                    fontPackage: CupertinoIcons.iconFontPackage),
+              )
+            : Icon(
+                Icons.switch_camera,
+              ),
         iconSize: 40,
         color: Colors.white,
         onPressed: controller != null ? swapCamera : null,
