@@ -252,7 +252,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     return Container(
       child: IconButton(
         icon: SvgPicture.asset(
-          "assets/images/record_button.svg",
+          "assets/images/picture_button.svg",
         ),
         iconSize: 66,
         color: Colors.red,
