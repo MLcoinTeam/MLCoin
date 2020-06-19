@@ -15,8 +15,11 @@ import 'package:camera/camera.dart';
 import 'package:mlcoin_app/repositories/repositories.dart';
 import 'package:mlcoin_app/utils/values/colors.dart';
 import 'package:mlcoin_app/widgets/atoms/atoms.dart';
+import 'package:gallery_saver/gallery_saver.dart';
+import 'package:path/path.dart' show join;
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 ///
 import 'dart:io' show Platform;
@@ -54,7 +57,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   }
 
   _setController() {
-    controller = CameraController(cameras.first, ResolutionPreset.medium);
+    controller = CameraController(cameras.first, ResolutionPreset.max);
     selectedCamera = 0;
     _initializeControllerFuture = controller.initialize();
   }
@@ -233,13 +236,18 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
 
   /// Display the preview from the camera (or a message if the preview is not available).
   Widget _cameraPreviewWidget() {
+    final size = MediaQuery.of(context).size;
+    final deviceRatio = size.width / size.height;
     return FutureBuilder<void>(
         future: _initializeControllerFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.done) {
-            return AspectRatio(
-              child: CameraPreview(controller),
-              aspectRatio: controller.value.aspectRatio,
+            return Transform.scale(
+              scale: controller.value.aspectRatio / deviceRatio,
+              child: AspectRatio(
+                child: CameraPreview(controller),
+                aspectRatio: controller.value.aspectRatio,
+              ),
             );
           } else
             return Center(
@@ -341,7 +349,7 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
     }
     controller = CameraController(
       cameraDescription,
-      ResolutionPreset.medium,
+      ResolutionPreset.max,
       //enableAudio: enableAudio,
     );
 
@@ -365,36 +373,61 @@ class _ScannerPageState extends State<ScannerPage> with WidgetsBindingObserver {
   }
 
   Future<String> takePicture() async {
+    String filePath;
     if (!controller.value.isInitialized) {
       //print('Error: select a camera first.');
       return null;
     }
-    final Directory extDir = await getApplicationDocumentsDirectory();
-    final String dirPath = '${extDir.path}/Pictures/flutter_test';
-    await Directory(dirPath).create(recursive: true);
-    final String filePath = '$dirPath/${DateTime.now()}.jpg';
-
-    if (controller.value.isTakingPicture) {
-      // A capture is already pending, do nothing.
-      return null;
-    }
 
     try {
+      filePath = join((await getApplicationDocumentsDirectory()).path,
+          "${DateTime.now()}.jpg");
       await controller.takePicture(filePath);
     } catch (e) {
-      //print(e);
+      print(e);
+    }
+    if (controller.value.isTakingPicture) {
       return null;
     }
     return filePath;
   }
 
+  //backup
+  // void onTakePictureButtonPressed() async {
+  //   await takePicture().then((String filePath) {
+  //     if (mounted) {
+  //       setState(() {
+  //         imagePath = filePath;
+  //       });
+
+  //       if (filePath != null) {
+  //         print('Picture saved to $filePath');
+  //       }
+  //     }
+  //   });
+  // }
+
   void onTakePictureButtonPressed() async {
     await takePicture().then((String filePath) {
-      if (mounted) {
-        setState(() {
-          imagePath = filePath;
-        });
-        if (filePath != null) print('Picture saved to $filePath');
+      try {
+        GallerySaver.saveImage(filePath);
+        Fluttertoast.showToast(
+            msg: "Foto Catturata",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
+      } catch (e) {
+        Fluttertoast.showToast(
+            msg: e,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            timeInSecForIosWeb: 1,
+            backgroundColor: Colors.black,
+            textColor: Colors.white,
+            fontSize: 16.0);
       }
     });
   }
