@@ -35,6 +35,8 @@ class _SettingsPageState extends State<SettingsPage> {
   String selectedLanguage = 'Italiano';
   // to update darkTheme
   bool darkTheme = false;
+  // possibility to block the app with id
+  bool blockApp = false;
 
   ///
   @override
@@ -112,6 +114,14 @@ class _SettingsPageState extends State<SettingsPage> {
                               style: TextStyle(
                                 color: Colors.black,
                               ),
+                            ),
+                            trailing: CupertinoSwitch(
+                              value: blockApp,
+                              onChanged: (bool newValue) {
+                                setState(() {
+                                  blockApp = newValue;
+                                });
+                              },
                             ),
                           ),
                         ],
