@@ -10,6 +10,8 @@
 */
 //
 import 'package:flutter/material.dart';
+import 'package:mlcoin_app/utils/values/values.dart';
+import 'package:mlcoin_app/widgets/atoms/atoms.dart';
 //
 //
 class BottomNavigationBarStateless extends StatelessWidget {
@@ -18,11 +20,9 @@ class BottomNavigationBarStateless extends StatelessWidget {
     @required this.currentIndex,
     @required this.onTapNavigation,
   });
-
   ///
   final int currentIndex;
   final Function onTapNavigation;
-
   ///
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class BottomNavigationBarStateless extends StatelessWidget {
             Icons.photo_library,
             //FontAwesomeIcons.calendar,
           ),
-          title: new AtomText.bottomBarTitle("Monete"),
+          title:  AtomText.bottomBarTitle("Monete"),
         ),
         // User Page
         BottomNavigationBarItem(
