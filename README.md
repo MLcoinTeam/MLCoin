@@ -1,4 +1,6 @@
 # MLcoin_app
+[![Discord Chat](https://img.shields.io/badge/Discord-Chat-important)](https://discord.gg/nMTKrRZ)
+
 
 <div align="center">
   <img src="media/logo.jpg" width="120px">
